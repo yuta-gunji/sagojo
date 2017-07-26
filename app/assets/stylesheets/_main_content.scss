@@ -1,0 +1,223 @@
+.main-content {
+  width: 1090px;
+  padding: 140px 15px 80px;
+  margin: 0 auto;
+  @include clearfix();
+  .content-left {
+    width: 690px;
+    float: left;
+    @include clearfix();
+    .top-hdg-01 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+    .thumb-job {
+      height: 260px;
+      &__info {
+        display: inline-block;
+        text-decoration: none;
+        @include clearfix();
+        &__image {
+          float: left;
+          width: 260px;
+        }
+        &__content {
+          float: right;
+          width: 390px;
+          height: 220px;
+          padding: 20px;
+          background-color: white;
+          &__company {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #494848;
+            &__icon {
+              float: left;
+              margin-right: 10px;
+              width: 23px;
+              height: 20px;
+            }
+            &__name {
+              letter-spacing: 2px;
+            }
+          }
+          &__title {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #000;
+            font-weight: bold;
+          }
+          &__desc {
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: #aeaeae;
+          }
+          &__utility {
+            font-size: 11px;
+            margin-bottom: 10px;
+            color: #aeaeae;
+            &__date {
+              font-size: 15px;
+              font-weight: bold;
+              color: #ffcb00;
+              padding-left: 10px;
+            }
+            &__view {
+              margin-left: 10px;
+            }
+          }
+          &__taglists {
+            margin-bottom: 10px;
+            @include clearfix();
+            &__image {
+              float: left;
+              margin-right: 10px;
+            }
+            &__list {
+              margin-left: 10px;
+              float: left;
+              &__item {
+                float: left;
+                color: #aeaeae;
+                font-size: 11px;
+              }
+            }
+          }
+          &__fee {
+            &__inner-01 {
+              float: left;
+              margin-right: 30px;
+              font-size: 13px;
+              font-weight: bold;
+              &__image {
+                float: left;
+              }
+              &__desc {
+                float: left;
+                line-height: 28px;
+                padding-left: 15px;
+                color: #aeaeae;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content-right {
+    width: 340px;
+    float: right;
+    .topbanner {
+      &__image {
+        margin-bottom: 20px;
+      }
+    }
+    .top-hdg-02 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+    .thum-column {
+      margin-top: 10px;
+      &__link {
+        display: block;
+        overflow: hidden;
+        padding: 15px 20px 15px 15px;
+        text-decoration: none;
+        background-color: #fff;
+        &__image {
+          float: left;
+          margin-right: 15px;
+        }
+        &__content {
+          overflow: hidden;
+          &__title {
+            margin-bottom: 10px;
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          &__utility {
+            font-size: 11px;
+            color: #aeaeae;
+            &--view {
+              margin-left: 10px;
+              padding-left: 10px;
+              border-left: 1px solid #ddd;
+            }
+          }
+        }
+      }
+    }
+    .more-column {
+      font-size: 14px;
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      padding: 18px 10px;
+      color: #494848;
+      letter-spacing: 3px;
+      text-align: center;
+      background-color: #fff;
+    }
+    .sns {
+      margin-top: 30px;
+      padding: 25px 30px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      &__logo {
+        font-size: 16px;
+        letter-spacing: 2px;
+        line-height: 26px;
+        &__image {
+          margin-right: 10px;
+          position: relative;
+          top: 3px;
+        }
+      }
+      &__list {
+        margin-top: 25px;
+        text-align: center;
+        &__facebook {
+          margin-bottom: 35px;
+          &__link {
+            color: #fff;
+            font-size: 15px;
+            padding: 25px 70px;
+            background-color: #3a589b;
+            text-decoration: none;
+            letter-spacing: 3px;
+            border-radius: 100px;
+            &__image {
+              position: relative;
+              top: 12px;
+            }
+          }
+        }
+        &__twitter {
+          margin-bottom: 35px;
+          &__link {
+            color: #fff;
+            font-size: 15px;
+            padding: 25px 70px;
+            background-color: #1aa8e2;
+            text-decoration: none;
+            letter-spacing: 3px;
+            border-radius: 100px;
+            &__image {
+              position: relative;
+              top: 12px;
+            }
+          }
+        }
+      }
+      &__message {
+        font-size: 13px;
+        text-align: center;
+        color: #aeaeae;
+
+      }
+    }
+  }
+}
