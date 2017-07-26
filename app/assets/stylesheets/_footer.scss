@@ -1,0 +1,77 @@
+#footer-01 {
+  width: 100%;
+  padding: 75px 0 60px 0;
+  color: #fff;
+  background-color: #232323;
+  position: relative;
+  .footer-inner {
+    width: 870px;
+    margin: 0 auto;
+    .lead-01 {
+      font-family: "Arial Rounded MT", "Arial Rounded MT Bold";
+      font-size: 24px;
+      margin-bottom: 75px;
+      text-align: center;
+      letter-spacing: 2px;
+      color: #ffcb00;
+    }
+    .wrapper {
+      margin-bottom: 75px;
+      @include clearfix();
+      .links {
+        float: left;
+        width: 50%;
+        &__list {
+          float: left;
+          font-size: 14px;
+          list-style: none;
+          width: 50%;
+          &--head {
+            margin-bottom: 15px;
+            font-weight: bold;
+          }
+          &--content{
+            margin-bottom: 15px;
+          }
+        }
+      }
+      .opinion {
+        float: left;
+        &__head {
+          margin-bottom: 15px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__form {
+          &__email {
+            width: 100%;
+            border-radius: 4px;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+          }
+          &__text {
+            width: 100%;
+            height: 210px;
+            border-radius: 4px;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+            margin: 10px 0;
+          }
+        }
+        .form__submit {
+          width: 100%;
+          font-size: 14px;
+          font-weight: bold;
+          color: black;
+          text-align: center;
+          padding: 15px 10px;
+          letter-spacing: 3px;
+          border-radius: 27px;
+          background-color: #ffcb00;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
