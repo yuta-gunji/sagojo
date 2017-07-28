@@ -2,7 +2,7 @@
   .content-left
     %h2.top-hdg-01 新着のシゴト
     .thumb-job
-      = link_to root_path, class: "thumb-job__info" do
+      = link_to root_path, class: "thumb-job__info", method: :get do
         .thumb-job__info__image
           = image_tag("https://d1te0bovbq6epg.cloudfront.net/uploads/%E3%82%B3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B5%E3%83%9F%E3%83%83%E3%83%88/kosupure1_square.jpeg", size: "260x260")
         .thumb-job__info__content
@@ -42,11 +42,11 @@
               = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-object.svg", class: "thumb-job__info__content__fee__inner-01__image",alt: "物", size:"22x22")
               %p.thumb-job__info__content__fee__inner-01__desc 他リターンあり
   .content-right
-    = link_to root_path, class: "topbanner" do
+    = link_to root_path, class: "topbanner", method: :get do
       = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/top_banner02.png", class: "topbanner__image", size: "340x282")
     %h3.top-hdg-02 新着 すごい旅研究所の記事
     .thum-column
-      = link_to root_path, class: "thum-column__link" do
+      = link_to root_path, class: "thum-column__link", method: :get do
         .thum-column__link__image
           = image_tag("https://d1te0bovbq6epg.cloudfront.net/uploads/%E3%81%AE%E3%81%A3%E3%81%A1%E3%82%B3%E3%83%A9%E3%83%A0/nocci001square.jpeg", size: "60x60")
         .thum-column__link__content
