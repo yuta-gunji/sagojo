@@ -1,0 +1,77 @@
+.content {
+  background-color: #fafafa;
+  .inner {
+    width: 490px;
+    padding: 45px 15px;
+    margin: 0 auto;
+    .main {
+      padding: 60px 50px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 5px;
+      .image {
+        &__view {
+          border-radius: 50%;
+        }
+      }
+      .head {
+        font-size: 24px;
+        margin: 40px 0 10px;
+        letter-spacing: 2px;
+      }
+      .new-user {
+        position: relative;
+        &__field-input {
+          font-size: 14px;
+          height: 50px;
+          width: 100%;
+          margin-bottom: 10px;
+          text-align: center;
+          letter-spacing: 2px;
+          border: 1px solid #ddd;
+          border-radius: 100px;
+          outline: 0;
+        }
+        &__field-input:hover {
+          border: 1px solid #ffcb00;
+        }
+        &__conform {
+          font-size: 12px;
+          margin-bottom: 10px;
+        }
+        &__btn {
+          width: 100%;
+          font-size: 16px;
+          color: #fff;
+          padding: 20px 50px;
+          letter-spacing: 3px;
+          border-radius: 100px;
+          border-style: none;
+          background-color: #ffcb00;
+          outline: none;
+        }
+        &__btn:hover {
+          background-color: #ffdb50;
+        }
+      }
+    }
+    .sub {
+      &__msg {
+        margin: 20px auto 0;
+        font-size: 14px;
+        &--link {
+          color: #3a94ff;
+          text-decoration: none;
+        }
+      }
+      &__copyright {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 5px;
+        color: #b8b8b8;
+        font-family: "Arial Rounded MT", "Arial Rounded MT Bold";
+      }
+    }
+  }
+}
