@@ -1,34 +1,34 @@
 %header#header-01
   .header-inner
     %h1.logo
-      = link_to root_path, class: "logo__link" do
+      = link_to root_path, class: "logo__link", method: :get do
         = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/logo.svg", alt: "SAGOJO", class: "logo__link__img")
         %span.logo__link__text すごい旅人求人サイト - サゴジョー
     %nav.globalnav-01{ role: "navigation" }
       %ul.globalnav-01__list
         %li.globalnav-01__list__item
-          = link_to "ホーム", root_path, class: "globalnav-01__list__item__link"
+          = link_to "ホーム", root_path, class: "globalnav-01__list__item__link", method: :get
         %li.globalnav-01__list__item
-          = link_to "シゴト", root_path, class: "globalnav-01__list__item__link"
+          = link_to "シゴト", root_path, class: "globalnav-01__list__item__link", method: :get
         %li.globalnav-01__list__item
-          = link_to "すごい旅研究所", root_path, class: "globalnav-01__list__item__link"
+          = link_to "すごい旅研究所", root_path, class: "globalnav-01__list__item__link", method: :get
         %li.globalnav-01__list__item
-          = link_to "はじめての方はこちら", root_path, class: "globalnav-01__list__item__link"
+          = link_to "はじめての方はこちら", root_path, class: "globalnav-01__list__item__link", method: :get
         %li.globalnav-01__list__item
-          = link_to "企業の方はこちら", root_path, class: "globalnav-01__list__item__link"
+          = link_to "企業の方はこちら", root_path, class: "globalnav-01__list__item__link", method: :get
         %li.globalnav-01__list__item
-          = link_to "FAQ", root_path, class: "globalnav-01__list__item__link"
-    //ログインしてない時の項目
-    .utility-01
-      %ul.utility-01__list
-        %li.utility-01__list__login
-          = link_to "ログイン", root_path, class: "utility-01__list__login__link"
-        %li.utility-01__list__registry
-          = link_to "旅人登録", root_path, class: "utility-01__list__registry__link"
-    //ログイン中の項目
-    / .header-utility-02
-    /   = link_to "", root_path do
-    /     %span{ class: "header-img-prof-01 chat-prof" }
-    /   = link_to "", root_path, id: "js-btnHeaderUtility" do
-    /     %span{class: "header-img-prof-01", style: "background-image: url('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png');" }
-    /     %span{ class: "header-prof-name-01"} ユーザー名前
+          = link_to "FAQ", root_path, class: "globalnav-01__list__item__link", method: :get
+    - if user_signed_in?
+      .utility-02
+        %span.utility-02__image
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', size: "30x30", class: "utility-02__image--view")
+        %span.utility-02__user-name
+          = current_user.name
+        %span.utility-02__select ▼
+    - else
+      .utility-01
+        %ul.utility-01__list
+          %li.utility-01__list__login
+            = link_to "ログイン", new_user_session_path, class: "utility-01__list__login__link"
+          %li.utility-01__list__registry
+            = link_to "旅人登録", new_user_registration_path, class: "utility-01__list__registry__link"
