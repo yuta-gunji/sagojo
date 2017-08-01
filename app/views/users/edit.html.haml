@@ -6,12 +6,12 @@
   .main-content-type-02
     .left-content
       .profile-area-01
-        = form_for @user do |f|
+        = form_for @user, class: "edit_user" do |f|
           .user-image
           %h2.user-name
             = @user.name
           .form-wrap-01
-            = f.label :birth_day do
+            = f.label :birth_day, class: "label-01" do
               生年月日
             .select-list
               = f.date_select(:birth_day,
