@@ -15,7 +15,7 @@
       letter-spacing: 2px;
       color: #ffcb00;
     }
-    .wrapper {
+    .footer-wrapper-01 {
       margin-bottom: 75px;
       @include clearfix();
       .links {
@@ -30,19 +30,25 @@
             margin-bottom: 15px;
             font-weight: bold;
           }
-          &--content{
+          &--content {
+            color: #808080;
             margin-bottom: 15px;
+          }
+          &--content:hover {
+            color: #fff;
           }
         }
       }
       .opinion {
         float: left;
+        width: calc(100% - 435px);
         &__head {
           margin-bottom: 15px;
           font-size: 14px;
           font-weight: bold;
         }
         &__form {
+          color: black;
           &__email {
             width: 100%;
             border-radius: 4px;
@@ -51,7 +57,9 @@
           }
           &__text {
             width: 100%;
+            max-width: 435px;
             height: 210px;
+            max-height: 210px;
             border-radius: 4px;
             padding: 5px 10px;
             border: 1px solid #fff;
@@ -60,7 +68,6 @@
           }
         }
         .form__submit {
-          width: 100%;
           font-size: 14px;
           font-weight: bold;
           color: black;

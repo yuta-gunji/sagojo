@@ -20,11 +20,23 @@
           = link_to "FAQ", root_path, class: "globalnav-01__list__item__link", method: :get
     - if user_signed_in?
       .utility-02
+        %input{ class: 'current_user_id', type: "hidden", value: current_user.id }
         %span.utility-02__image
-          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', size: "30x30", class: "utility-02__image--view")
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', class: "utility-02__image--view")
         %span.utility-02__user-name
           = current_user.name
         %span.utility-02__select ▼
+        %ul.utility-02__lists
+          %li.utility-02__lists__list
+            = link_to "応募した仕事", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "お気に入り一覧", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "プロフィール編集", edit_user_path(current_user), class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "ログアウト", destroy_user_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
     - else
       .utility-01
         %ul.utility-01__list
