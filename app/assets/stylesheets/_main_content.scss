@@ -1,9 +1,9 @@
-.main-content {
+.main-content-type1 {
   width: 1090px;
   padding: 140px 15px 80px;
   margin: 0 auto;
   @include clearfix();
-  .content-left {
+  .left-content {
     width: 690px;
     float: left;
     @include clearfix();
@@ -25,7 +25,7 @@
         &__content {
           float: right;
           width: 390px;
-          height: 220px;
+          height: 260px;
           padding: 20px;
           background-color: white;
           &__company {
@@ -85,9 +85,10 @@
             }
           }
           &__fee {
+            @include clearfix();
             &__inner-01 {
               float: left;
-              margin-right: 30px;
+              margin-right: 25px;
               font-size: 13px;
               font-weight: bold;
               &__image {
@@ -105,7 +106,7 @@
       }
     }
   }
-  .content-right {
+  .right-content {
     width: 340px;
     float: right;
     .topbanner {
@@ -170,44 +171,32 @@
         font-size: 16px;
         letter-spacing: 2px;
         line-height: 26px;
+        text-align: center;
         &__image {
           margin-right: 10px;
           position: relative;
-          top: 3px;
         }
       }
-      &__list {
+      &__lists {
         margin-top: 25px;
         text-align: center;
-        &__facebook {
-          margin-bottom: 35px;
+        @include clearfix();
+        &__list {
+          margin-bottom: 20px;
           &__link {
             color: #fff;
             font-size: 15px;
-            padding: 25px 70px;
+            padding: 20px 60px;
             background-color: #3a589b;
             text-decoration: none;
             letter-spacing: 3px;
             border-radius: 100px;
-            &__image {
-              position: relative;
-              top: 12px;
+            display: block;
+            &--background {
+              background-color: #1aa8e2;
             }
-          }
-        }
-        &__twitter {
-          margin-bottom: 35px;
-          &__link {
-            color: #fff;
-            font-size: 15px;
-            padding: 25px 70px;
-            background-color: #1aa8e2;
-            text-decoration: none;
-            letter-spacing: 3px;
-            border-radius: 100px;
             &__image {
               position: relative;
-              top: 12px;
             }
           }
         }
