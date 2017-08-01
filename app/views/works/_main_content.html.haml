@@ -1,5 +1,5 @@
-.main-content
-  .content-left
+.main-content-type1
+  .left-content
     %h2.top-hdg-01 新着のシゴト
     .thumb-job
       = link_to root_path, class: "thumb-job__info", method: :get do
@@ -41,7 +41,7 @@
             .thumb-job__info__content__fee__inner-01
               = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-object.svg", class: "thumb-job__info__content__fee__inner-01__image",alt: "物", size:"22x22")
               %p.thumb-job__info__content__fee__inner-01__desc 他リターンあり
-  .content-right
+  .right-content
     = link_to root_path, class: "topbanner", method: :get do
       = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/top_banner02.png", class: "topbanner__image", size: "340x282")
     %h3.top-hdg-02 新着 すごい旅研究所の記事
@@ -59,14 +59,14 @@
       %p.sns__logo
         = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/logo.svg", class: "sns__logo__image", alt: "SAGOJO", size: "130x20")
         をフォローする
-      %ul.sns__list
-        %li.sns__list__facebook
-          = link_to "https://www.facebook.com/sagojo.travel/?ref=aymt_homepage_panel", class: "sns__list__facebook__link" do
-            = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-fb.svg", class: "sns__list__facebook__link__image", alt: "facebook", size: "25x35")
+      %ul.sns__lists
+        %li.sns__lists__list
+          = link_to "https://www.facebook.com/sagojo.travel/?ref=aymt_homepage_panel", class: "sns__lists__list__link" do
+            = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-fb.svg", class: "sns__lists__list__link--image", alt: "facebook", size: "25x35")
             フォローする
-        %li.sns__list__twitter
-          = link_to "https://twitter.com/sagojo_travel", class: "sns__list__twitter__link" do
-            = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tw-02.svg", class: "sns__list__twitter__link__image", alt: "twitter", size: "25x35")
+        %li.sns__lists__list
+          = link_to "https://twitter.com/sagojo_travel", class: "sns__lists__list__link sns__lists__list__link--background" do
+            = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tw-02.svg", class: "sns__lists__list__link--image", alt: "twitter", size: "25x35")
             フォローする
 
 
