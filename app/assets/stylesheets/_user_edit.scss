@@ -46,7 +46,6 @@
             margin-top: 25px;
             text-align: left;
             .select-list {
-
               &__birth-day {
                 font-size: 13px;
                 position: relative;
@@ -88,7 +87,7 @@
               border-color: #ffcb00;
             }
             .textbox-02.type-02 {
-              width: 490px;
+              width: calc(100% - 50px);
               line-height: 50px;
               padding: 0 25px;
               letter-spacing: 2px;

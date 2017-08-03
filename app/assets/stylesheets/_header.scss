@@ -35,9 +35,9 @@
       float: left;
       height: 46px;
       @include clearfix();
-      &__list {
+      &__lists {
         float: left;
-        &__item {
+        &__list {
           float: left;
           &__link {
           font-size: 13px;
@@ -45,6 +45,9 @@
           color: #808080;
           text-decoration: none;
           margin-right: 30px;
+          }
+          &__link:hover {
+            opacity: 0.8;
           }
         }
       }
