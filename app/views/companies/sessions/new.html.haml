@@ -1,0 +1,20 @@
+.content
+  = render 'layouts/flash_message'
+  .inner
+    .main
+      .image
+        = image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgKhxyQ-aY5SDb7GVhHYc0w5CG71_1M1XGZ1HpwInRnsbQpe2UxQ", size: "105x105", class: "image__view")
+      %h1.head 企業アカウントでログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.email_field :email, placeholder: "メールアドレス", class: "new_company__field-input", autofocus: true
+        = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new_company__field-input"
+        = f.submit "ログイン", class: 'new_company__btn'
+
+    .sub
+      %p.sub__msg-01
+        登録はしましたか？
+        = link_to "企業登録", new_company_registration_path, class: "sub__msg-01--link", method: :get
+      %p.sub__msg-02
+        トップページは
+        = link_to "こちら", root_path, class: "sub__msg-02--link", method: :get
+      %p.sub__copyright © SAGOJO.

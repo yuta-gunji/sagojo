@@ -1,0 +1,103 @@
+.content {
+  background-color: #fafafa;
+  height: 100vh;
+  overflow: scroll;
+  .inner {
+    width: 490px;
+    padding: 45px 0;
+    margin: 0 auto;
+    .main {
+      padding: 60px 50px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 5px;
+      .image {
+        &__view {
+          border-radius: 50%;
+        }
+      }
+      .head {
+        font-size: 24px;
+        margin: 40px 0 10px;
+        letter-spacing: 2px;
+      }
+      .new_company {
+        position: relative;
+        &__field-input {
+          font-size: 14px;
+          height: 50px;
+          width: 100%;
+          margin-bottom: 10px;
+          text-align: center;
+          letter-spacing: 2px;
+          border: 1px solid #ddd;
+          border-radius: 100px;
+          outline: 0;
+        }
+        &__field-input:hover {
+          border-color: #a0a0a0;
+        }
+        &__field-input:focus {
+          border-color: #ffcb00;
+        }
+        &__conform {
+          font-size: 12px;
+          margin-bottom: 10px;
+        }
+        &__btn {
+          width: 100%;
+          font-size: 16px;
+          color: #fff;
+          padding: 20px 50px;
+          letter-spacing: 3px;
+          border-radius: 100px;
+          border-style: none;
+          background-color: #ffcb00;
+          outline: none;
+        }
+        &__btn:hover {
+          background-color: #ffdb50;
+        }
+      }
+    }
+    .sub {
+      @include clearfix();
+      &__msg-01 {
+        margin: 20px auto 0;
+        font-size: 14px;
+        float: left;
+        &--link {
+          color: #3a94ff;
+          text-decoration: none;
+          display: inline-block;
+          margin:0 5px;
+        }
+        &--link:hover {
+          opacity: 0.8;
+        }
+      }
+      &__msg-02 {
+        margin: 20px auto 0;
+        font-size: 14px;
+        float: right;
+        &--link {
+          color: #3a94ff;
+          display: inline-block;
+          text-decoration: none;
+        }
+        &--link:hover {
+          opacity: 0.8;
+        }
+      }
+      &__copyright {
+        padding-top: 40px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 5px;
+        color: #b8b8b8;
+        clear: both;
+        font-family: "Arial Rounded MT", "Arial Rounded MT Bold";
+      }
+    }
+  }
+}
