@@ -66,6 +66,10 @@
           .new_company {
             display: block;
             float: left;
+            #error_explanation {
+              font-size: 14px;
+              padding-left: 80px;
+            }
             &__field-input {
               height: 50px;
               width: 290px;

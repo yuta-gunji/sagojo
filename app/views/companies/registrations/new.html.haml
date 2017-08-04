@@ -28,6 +28,7 @@
             %p.registration__content--text
               企業名、メールアドレス、パスワードを入力して登録する
             = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "new_company") do |f|
+              = devise_error_messages!
               = f.text_field :name, class: "new_company__field-input", placeholder: "企業名"
               = f.email_field :email, class: "new_company__field-input", placeholder: "メールアドレス"
               = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new_company__field-input"
