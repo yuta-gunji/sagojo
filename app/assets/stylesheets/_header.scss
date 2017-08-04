@@ -55,15 +55,38 @@
     .utility-01 {
       float: right;
       &__list {
-        width: 200px;
         height: 46px;
         &__login {
           float: left;
           line-height: 46px;
-          &__link {
-            color: #3a94ff;
-            text-decoration: none;
-            font-size: 13px;
+          color: #3a94ff;
+          cursor: pointer;
+          .login-lists {
+            display: none;
+            position: absolute;
+            margin-top: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            &__list {
+              font-size: 13px;
+              text-align: center;
+              min-width: 200px;
+              border-bottom: 1px solid #dddddd;
+              &--last {
+                border: none;
+              }
+              &--link {
+                display: block;
+                padding: 10px 0;
+                text-decoration: none;
+                color: #808080;
+                width: 100%;
+              }
+              &--link:hover {
+                color: black;
+              }
+            }
           }
         }
         &__registry {
@@ -104,6 +127,13 @@
         color: #808080;
         cursor: pointer;
       }
+      &__company-name {
+        font-size: 13px;
+        line-height: 38px;
+        margin: 0 10px;
+        color: #808080;
+        cursor: pointer;
+      }
       &__select {
         line-height: 38px;
         margin-right: 20px;
@@ -123,7 +153,6 @@
           text-align: center;
           min-width: 230px;
           border-bottom: 1px solid #dddddd;
-
           &__link {
             display: block;
             padding: 17px 0;

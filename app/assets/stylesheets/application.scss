@@ -4,6 +4,8 @@
 @import "header";
 @import "flash_message";
 @import "main_content";
-@import "user_registration";
-@import "user_edit";
+@import "user/registration_sign-in";
+@import "user/edit";
+@import "company/registration";
+@import "company/sign-in";
 @import "footer"

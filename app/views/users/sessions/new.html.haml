@@ -4,14 +4,17 @@
     .main
       .image
         = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-sagojokun-01.svg", size: "105x105", class: "image__view")
-      %h1.head アカウントを入力してログイン
+      %h1.head 旅人アカウントでログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        = f.email_field :email, placeholder: "メールアドレス", class: "new-user__field-input", autofocus: true
-        = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new-user__field-input"
-        = f.submit "ログイン", class: 'new-user__btn'
+        = f.email_field :email, placeholder: "メールアドレス", class: "new_user__field-input", autofocus: true
+        = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new_user__field-input"
+        = f.submit "ログイン", class: 'new_user__btn'
 
     .sub
-      %p.sub__msg
+      %p.sub__msg-01
         登録はしましたか？
-        = link_to "旅人登録", new_user_registration_path, class: "sub__msg--link"
+        = link_to "旅人登録", new_user_registration_path, class: "sub__msg-01--link", method: :get
+      %p.sub__msg-02
+        トップページは
+        = link_to "こちら", root_path, class: "sub__msg-02--link", method: :get
       %p.sub__copyright © SAGOJO.
