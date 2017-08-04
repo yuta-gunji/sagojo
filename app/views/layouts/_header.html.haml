@@ -5,22 +5,51 @@
         = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/logo.svg", alt: "SAGOJO", class: "logo__link__img")
         %span.logo__link__text すごい旅人求人サイト - サゴジョー
     %nav.globalnav-01{ role: "navigation" }
-      %ul.globalnav-01__list
-        %li.globalnav-01__list__item
-          = link_to "ホーム", root_path, class: "globalnav-01__list__item__link", method: :get
-        %li.globalnav-01__list__item
-          = link_to "シゴト", root_path, class: "globalnav-01__list__item__link", method: :get
-        %li.globalnav-01__list__item
-          = link_to "すごい旅研究所", root_path, class: "globalnav-01__list__item__link", method: :get
-        %li.globalnav-01__list__item
-          = link_to "はじめての方はこちら", root_path, class: "globalnav-01__list__item__link", method: :get
-        %li.globalnav-01__list__item
-          = link_to "企業の方はこちら", root_path, class: "globalnav-01__list__item__link", method: :get
-        %li.globalnav-01__list__item
-          = link_to "FAQ", root_path, class: "globalnav-01__list__item__link", method: :get
-    - if user_signed_in?
+      %ul.globalnav-01__lists
+        %li.globalnav-01__lists__list
+          = link_to "ホーム", root_path, class: "globalnav-01__lists__list__link", method: :get
+        %li.globalnav-01__lists__list
+          = link_to "シゴト", root_path, class: "globalnav-01__lists__list__link", method: :get
+        %li.globalnav-01__lists__list
+          = link_to "すごい旅研究所", root_path, class: "globalnav-01__lists__list__link", method: :get
+        %li.globalnav-01__lists__list
+          = link_to "はじめての方はこちら", root_path, class: "globalnav-01__lists__list__link", method: :get
+        %li.globalnav-01__lists__list
+          = link_to "企業の方はこちら", new_company_registration_path, class: "globalnav-01__lists__list__link", method: :get
+        %li.globalnav-01__lists__list
+          = link_to "FAQ", root_path, class: "globalnav-01__lists__list__link", method: :get
+    - if (user_signed_in?) && (company_signed_in?)
       .utility-02
-        %input{ class: 'current_user_id', type: "hidden", value: current_user.id }
+        %span.utility-02__image
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', class: "utility-02__image--view")
+        %span.utility-02__company-name
+          = current_company.name
+        %span.utility-02__select ▼
+        %ul.utility-02__lists
+          %li.utility-02__lists__list
+            = link_to "投稿求人一覧", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list.utility-02__lists__list--last
+            = link_to "ログアウト", destroy_company_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
+    - elsif company_signed_in?
+      .utility-02
+        %span.utility-02__image
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', class: "utility-02__image--view")
+        %span.utility-02__company-name
+          = current_company.name
+        %span.utility-02__select ▼
+        %ul.utility-02__lists
+          %li.utility-02__lists__list
+            = link_to "投稿求人一覧", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "投稿フォーム", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list
+            = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
+          %li.utility-02__lists__list.utility-02__lists__list--last
+            = link_to "ログアウト", destroy_company_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
+    - elsif user_signed_in?
+      .utility-02
         %span.utility-02__image
           = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', class: "utility-02__image--view")
         %span.utility-02__user-name
@@ -35,12 +64,17 @@
             = link_to "プロフィール編集", edit_user_path(current_user), class: "utility-02__lists__list__link", method: :get
           %li.utility-02__lists__list
             = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
-          %li.utility-02__lists__list
+          %li.utility-02__lists__list.utility-02__lists__list--last
             = link_to "ログアウト", destroy_user_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
     - else
       .utility-01
         %ul.utility-01__list
           %li.utility-01__list__login
-            = link_to "ログイン", new_user_session_path, class: "utility-01__list__login__link"
+            ログイン
+            %ul.login-lists
+              %li.login-lists__list
+                = link_to "旅人アカウント", new_user_session_path, class: "login-lists__list--link", method: :get
+              %li.login-lists__list.login-lists__list--last
+                = link_to "企業アカウント", new_company_session_path, class: "login-lists__list--link", method: :get
           %li.utility-01__list__registry
-            = link_to "旅人登録", new_user_registration_path, class: "utility-01__list__registry__link"
+            = link_to "旅人登録", new_user_registration_path, class: "utility-01__list__registry__link", method: :get

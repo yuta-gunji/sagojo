@@ -4,16 +4,19 @@
       .image
         = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tabibito-01.svg", size: "105x105", class: "image__view")
       %h1.head 登録してシゴトに応募しよう
-      = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "new-user") do |f|
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "new_user") do |f|
         = devise_error_messages!
-        = f.text_field :name, placeholder: "お名前", autofocus: true, class: "new-user__field-input"
-        = f.email_field :email, placeholder: "メールアドレス", class: "new-user__field-input"
-        = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new-user__field-input"
-        %p.new-user__conform パスワードは ６文字以上 にしてください
-        = f.submit "メールアドレスで 旅人登録", class: 'new-user__btn'
+        = f.text_field :name, placeholder: "お名前", autofocus: true, class: "new_user__field-input"
+        = f.email_field :email, placeholder: "メールアドレス", class: "new_user__field-input"
+        = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new_user__field-input"
+        %p.new_user__conform パスワードは ６文字以上 にしてください
+        = f.submit "メールアドレスで 旅人登録", class: 'new_user__btn'
     .sub
-      %p.sub__msg
-        ログインは
-        = link_to "こちら", new_user_session_path, class: "sub__msg--link"
-        から
+      %p.sub__msg-01
+        ログインへ
+        = link_to "旅人", new_user_session_path, class: "sub__msg-01--link", method: :get
+        = link_to "企業アカウント", new_company_session_path, class: "sub__msg-01--link", method: :get
+      %p.sub__msg-02
+        トップページは
+        = link_to "こちら", root_path, class: "sub__msg-02--link", method: :get
       %p.sub__copyright © SAGOJO.

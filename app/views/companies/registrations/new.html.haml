@@ -1,0 +1,105 @@
+#wrap
+  = render partial: 'layouts/header'
+  .eyecatch-type-01{ style: "background-image: url('https://d35omnrtvqomev.cloudfront.net/photo/article/article_part/image_path_1/54634/5632228ce6ea1b55a4b317ea27b8cf.jpg')" }
+    .eyecatch-type-01__inner
+      %h1.eyecatch-type-01__inner__head 企業の方へ
+      %p.eyecatch-type-01__inner__lead-01
+        世界120ヵ国、5900人の旅人が
+        %br
+        あなたのビジネスをお手伝いします
+      %p.eyecatch-type-01__inner__lead-02
+        海外や地方など、Web上にないローカルな情報がほしい、
+        %br
+        もっと様々な地域で自社製品のプロモーションをしたい、
+        %br
+        海外や地方に関するお仕事ならSAGOJOへ
+      %p.eyecatch-type-01__inner__btn
+        今すぐ問い合わせる
+  .main-content-type-03
+    %section.sec-01
+      .inner
+        .registration
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/nightley_banner02.jpg', class: "registration__image")
+          .registration__content
+            %h2.registration__content--head
+              SAGOJOの旅人は日本各地、
+              %br
+              世界各国を移動しています
+            %p.registration__content--text
+              企業名、メールアドレス、パスワードを入力して登録する
+            = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "new_company") do |f|
+              = f.text_field :name, class: "new_company__field-input", placeholder: "企業名"
+              = f.email_field :email, class: "new_company__field-input", placeholder: "メールアドレス"
+              = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "new_company__field-input"
+              %p.new_company__conform パスワードは ６文字以上 にしてください
+              = f.submit "この内容で登録する", class: 'new_company__btn'
+        %h2.result-head 導入社数25社突破！
+        %ul.client-lists
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/10.png', alt: "じゃらん")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/02.png', alt: "asoview")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/03.png', alt: "東京通信社")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/04.png', alt: "ことりっぷ")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/05.png', alt: "予約ラボ")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/06.png', alt: "KaikeiZine")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/07.png', alt: "HIS")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/08.png', alt: "オーストラリア")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/09.png', alt: "クイーンズランド")
+          %li.client-lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/01.png', alt: "THE BRIDGE")
+    %section.sec-02
+      .inner
+        %h2.service__head
+          世界120ヵ国、5900人の旅人が
+          %br
+          あなたのビジネスをお手伝いします
+        %ul.service__lists
+          %li.service__lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_contents.svg', class: "service__lists__list__image")
+            .service__lists__list__content
+              %h3.service__lists__list__content__head コンテンツ制作
+              %p.service__lists__list__content__text 旅人しか知らないローカルスポット、現地の文化のリアルな姿、世界でただひとつのコンテンツをご提供します。
+              .service__lists__list__content__btn 詳細はこちら
+          %li.service__lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_news.svg', class: "service__lists__list__image")
+            .service__lists__list__content
+              %h3.service__lists__list__content__head 旅人通信社
+              %p.service__lists__list__content__text 1泊2,000円以下で泊まれる宿、世界の変わったコンセプトのお店など、Webには流れないローカルな情報を旅人が世界中から集めます。
+              .service__lists__list__content__btn 詳細はこちら
+          %li.service__lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_instagram.svg', class: "service__lists__list__image")
+            .service__lists__list__content
+              %h3.service__lists__list__content__head
+                Instagram
+                %br
+                プロモーション
+              %p.service__lists__list__content__text 旅人インスタグラマーが世界中の風景と組み合わせてあなたの商品のプロモーションを行います。
+              .service__lists__list__content__btn 詳細はこちら
+          %li.service__lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_investigation.svg', class: "service__lists__list__image")
+            .service__lists__list__content
+              %h3.service__lists__list__content__head 調査
+              %p.service__lists__list__content__text 様々な地域の飲食店や施設、人々の動向などローカルな情報を旅人が足を使って調査いたします。
+              .service__lists__list__content__btn.service__lists__list__content__btn--background 今すぐ問い合わせる
+          %li.service__lists__list
+            = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_buyer.svg', class: "service__lists__list__image")
+            .service__lists__list__content
+              %h3.service__lists__list__content__head バイヤー
+              %p.service__lists__list__content__text 日本では高額だったり手に入らないその土地ならではの商品を旅人が買い付けます。
+              .service__lists__list__content__btn.service__lists__list__content__btn--background 今すぐ問い合わせる
+    %section.sec-03
+      .inner
+        %h2.inquiry-head
+          上記プラン以外のご相談も受け付けております。
+          %br
+          まずはお気軽にお問い合わせください。
+        .inquiry-btn 今すぐ問い合わせる
+  = render partial: 'layouts/footer'
