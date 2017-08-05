@@ -54,54 +54,51 @@
     }
     .utility-01 {
       float: right;
-      &__list {
-        height: 46px;
-        &__login {
-          float: left;
-          line-height: 46px;
-          color: #3a94ff;
-          cursor: pointer;
-          .login-lists {
-            display: none;
-            position: absolute;
-            margin-top: 15px;
-            border: 1px solid #dddddd;
-            border-radius: 10px;
-            background-color: #ffffff;
-            &__list {
-              font-size: 13px;
-              text-align: center;
-              min-width: 200px;
-              border-bottom: 1px solid #dddddd;
-              &--last {
-                border: none;
-              }
-              &--link {
-                display: block;
-                padding: 10px 0;
-                text-decoration: none;
-                color: #808080;
-                width: 100%;
-              }
-              &--link:hover {
-                color: black;
-              }
+      .login {
+        float: left;
+        line-height: 46px;
+        color: #3a94ff;
+        cursor: pointer;
+        .login-lists {
+          display: none;
+          position: absolute;
+          margin-top: 15px;
+          border: 1px solid #dddddd;
+          border-radius: 10px;
+          background-color: #ffffff;
+          &__list {
+            font-size: 13px;
+            text-align: center;
+            min-width: 200px;
+            border-bottom: 1px solid #dddddd;
+            &--last {
+              border: none;
+            }
+            &--link {
+              display: block;
+              padding: 10px 0;
+              text-decoration: none;
+              color: #808080;
+              width: 100%;
+            }
+            &--link:hover {
+              color: black;
             }
           }
         }
-        &__registry {
-          float: left;
-          line-height: 46px;
-          margin-left: 24px;
-          &__link {
-            padding: 16px 27px 16px 30px;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 3px;
-            color: #ffffff;
-            border-radius: 23px;
-            background-color: #3a94ff;
-          }
+      }
+      .registry {
+        float: left;
+        line-height: 46px;
+        margin-left: 24px;
+        &__link {
+          padding: 16px 27px 16px 30px;
+          text-decoration: none;
+          font-size: 13px;
+          letter-spacing: 3px;
+          color: #ffffff;
+          border-radius: 23px;
+          background-color: #3a94ff;
         }
       }
     }

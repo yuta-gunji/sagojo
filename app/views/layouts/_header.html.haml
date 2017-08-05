@@ -68,13 +68,12 @@
             = link_to "ログアウト", destroy_user_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
     - else
       .utility-01
-        %ul.utility-01__list
-          %li.utility-01__list__login
-            ログイン
-            %ul.login-lists
-              %li.login-lists__list
-                = link_to "旅人アカウント", new_user_session_path, class: "login-lists__list--link", method: :get
-              %li.login-lists__list.login-lists__list--last
-                = link_to "企業アカウント", new_company_session_path, class: "login-lists__list--link", method: :get
-          %li.utility-01__list__registry
-            = link_to "旅人登録", new_user_registration_path, class: "utility-01__list__registry__link", method: :get
+        .login
+          ログイン
+          %ul.login-lists
+            %li.login-lists__list
+              = link_to "旅人アカウント", new_user_session_path, class: "login-lists__list--link", method: :get
+            %li.login-lists__list.login-lists__list--last
+              = link_to "企業アカウント", new_company_session_path, class: "login-lists__list--link", method: :get
+        .registry
+          = link_to "旅人登録", new_user_registration_path, class: "registry__link", method: :get
