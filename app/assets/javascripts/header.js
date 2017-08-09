@@ -19,4 +19,8 @@ $(function(){
     $('.upper-message-01').fadeOut('slow');
     return false;
   });
+  $('.upper-message-02__btn').on('click', function(){
+    $('.upper-message-02').fadeOut('slow');
+    return false;
+  });
 });

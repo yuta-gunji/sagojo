@@ -18,7 +18,7 @@
           = link_to "企業の方はこちら", new_company_registration_path, class: "globalnav-01__lists__list__link", method: :get
         %li.globalnav-01__lists__list
           = link_to "FAQ", root_path, class: "globalnav-01__lists__list__link", method: :get
-    - if (user_signed_in?) && (company_signed_in?)
+    - if company_signed_in?
       .utility-02
         %span.utility-02__image
           = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', class: "utility-02__image--view")
@@ -29,21 +29,7 @@
           %li.utility-02__lists__list
             = link_to "投稿求人一覧", root_path, class: "utility-02__lists__list__link", method: :get
           %li.utility-02__lists__list
-            = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
-          %li.utility-02__lists__list.utility-02__lists__list--last
-            = link_to "ログアウト", destroy_company_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
-    - elsif company_signed_in?
-      .utility-02
-        %span.utility-02__image
-          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/ic_work_company_gray.png', class: "utility-02__image--view")
-        %span.utility-02__company-name
-          = current_company.name
-        %span.utility-02__select ▼
-        %ul.utility-02__lists
-          %li.utility-02__lists__list
-            = link_to "投稿求人一覧", root_path, class: "utility-02__lists__list__link", method: :get
-          %li.utility-02__lists__list
-            = link_to "投稿フォーム", root_path, class: "utility-02__lists__list__link", method: :get
+            = link_to "投稿フォーム", new_company_work_path(current_company), class: "utility-02__lists__list__link", method: :get
           %li.utility-02__lists__list
             = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
           %li.utility-02__lists__list.utility-02__lists__list--last

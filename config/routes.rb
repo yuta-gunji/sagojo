@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   root   'works#index'
   resources :users, only: [:edit, :update]
   resources :works, only: :index
+  resources  :companies, only: :show do
+    resources :works, only: [:new, :create]
+  end
+  resources :categories, only: :index
+  resources :tags, only: :index
 end
+

@@ -1,0 +1,75 @@
+.content-wrapper-02
+  = render partial: 'layouts/header'
+  = render partial: 'layouts/flash_message'
+  .upper-message-02
+    = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/icon-cancel.svg', class: "upper-message-02__btn")
+    %p.upper-message-02__text 求人内容を記入しましょう！
+  .main-content-type-04
+    .left-content
+      .work-area-01
+        = form_for [@company, @work] do |f|
+          %h2.company-name
+            = @company.name
+          - if @work.errors.present?
+            .work-form-errors
+              %h2
+                = "#{@work.errors.count}項目のエラーが発生しました"
+              %ul.work-form-errors__lists
+                - @work.errors.full_messages.each do |message|
+                  %li.work-form-errors__lists__list
+                    = message
+          .form-wrap-02
+            = f.label :outline, class: "label-02" do
+              仕事概要
+            = f.text_area :outline, class: "textarea-02 type-01"
+          .form-wrap-02
+            = f.label :image, class: "label-02" do
+              イメージ画像
+            = f.file_field :image, class: "work_image"
+          .form-wrap-02
+            %label.label-02{ for: 'category-select-field' }
+              職種 (入力すると既に存在する名前は下に表示されます)
+            %ul.category-select-lists
+              %li.category-select-lists__new
+                = f.fields_for :categories do |df|
+                  = df.text_field :name, class: "category-select-lists__new--input", id: 'category-select-field'
+            #category-search-result
+          .form-wrap-02
+            %label.label-02{ for: 'tag-select-field' }
+              必要なスキルなど
+            %ul.tag-select-lists
+              %li.tag-select-lists__new
+                = f.fields_for :tags do |df|
+                  = df.text_field :name, class: "tag-select-lists__new--input", id: 'tag-select-field'
+            #tag-search-result
+          .form-wrap-02
+            = f.label :fee, class: "label-02" do
+              リターン(報酬)
+            = f.text_field :fee, class: "textbox-03 type-01"
+          .form-wrap-02
+            = f.label :qualification_requirements, class: "label-02" do
+              必要資格
+            = f.text_area :qualification_requirements, class: "textarea-02 type-01"
+          .form-wrap-02
+            = f.label :headcount, class: "label-02" do
+              募集人数
+            = f.text_field :headcount, class: "textbox-03 type-01"
+          .form-wrap-02
+            = f.label :span, class: "label-02" do
+              就業期間
+            = f.text_field :span, class: "textbox-03 type-01"
+          .form-wrap-02
+            = f.label :area, class: "label-02" do
+              就業エリア
+            = f.text_field :area, class: "textbox-03 type-01"
+          .form-wrap-02
+            = f.label :recruitment_end_date, class: "label-02" do
+              募集終了日
+            .due-date
+              = f.date_select(:recruitment_end_date,
+                start_year: Date.today.year,
+                end_year: Date.today.year + 2,
+                class: 'due-date__select-list')
+          .form-submit
+            =f.button name: "comit", onclick: "submit()", class: "form-submit__btn", data:{ disable_with: '登録する' }
+  = render partial: 'layouts/footer'
