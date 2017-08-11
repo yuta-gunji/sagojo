@@ -1,46 +1,7 @@
 .main-content-type1
   .left-content
     %h2.top-hdg-01 新着のシゴト
-    .thumb-job
-      = link_to root_path, class: "thumb-job__info", method: :get do
-        .thumb-job__info__image
-          = image_tag("https://d1te0bovbq6epg.cloudfront.net/uploads/%E3%82%B3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%B5%E3%83%9F%E3%83%83%E3%83%88/kosupure1_square.jpeg", size: "260x260")
-        .thumb-job__info__content
-          .thumb-job__info__content__company
-            = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg", class: "thumb-job__info__content__company__icon", alt: "会社名")
-            %p.thumb-job__info__content__company__name 会社名
-          %h3.thumb-job__info__content__title
-            【7/29急募!!】世界30ヶ国からコスプレイヤーが集結！「世界コスプレサミット」を取材する旅人カメラマン＆ライター募集
-          %p.thumb-job__info__content__desc
-            過疎化が進む里山を、テクノロジー・デザイン・アートでアップデートする。そんな取り組みに挑戦している、石川県白山市。
-          %p.thumb-job__info__content__utility
-            募集終了まで
-            %span.thumb-job__info__content__utility__date
-              3
-              %span
-                日
-            %span.thumb-job__info__content__utility__view
-              530
-              %span
-                view
-          .thumb-job__info__content__taglists
-            = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", class: "thumb-job__info__content__taglists__image",size: "18x18", alt: "タグ")
-            %ul.thumb-job__info__content__taglists__list
-              %li.thumb-job__info__content__taglists__list__item
-                = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-02.svg", size: "14x14")
-                取材あり
-          .thumb-job__info__content__fee
-            .thumb-job__info__content__fee__inner-01
-              = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg", class: "thumb-job__info__content__fee__inner-01__image", alt: "金額", size: "22x22")
-              %p.thumb-job__info__content__fee__inner-01__desc
-                ¥
-                %span
-                  15000 ~ ¥
-                %span
-                  30000 /日
-            .thumb-job__info__content__fee__inner-01
-              = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-object.svg", class: "thumb-job__info__content__fee__inner-01__image",alt: "物", size:"22x22")
-              %p.thumb-job__info__content__fee__inner-01__desc 他リターンあり
+    = render @works
   .right-content
     = link_to root_path, class: "topbanner", method: :get do
       = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/top_banner02.png", class: "topbanner__image", size: "340x282")
@@ -68,8 +29,6 @@
           = link_to "https://twitter.com/sagojo_travel", class: "sns__lists__list__link sns__lists__list__link--background" do
             = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tw-02.svg", class: "sns__lists__list__link--image", alt: "twitter")
             %span.sns__lists__list__link--text フォローする
-
-
       %p.sns__message フォローして新着のシゴト情報をゲット！
 
 

@@ -1,0 +1,38 @@
+.thumb-job
+  = link_to root_path, class: "thumb-job__info", method: :get do
+    .thumb-job__info__image
+      = image_tag work.image_url(:thumb), class: "thumb-job__info__image--tag" if work.image.present?
+    .thumb-job__info__content
+      .thumb-job__info__content__company
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg", class: "thumb-job__info__content__company__icon", alt: "会社名")
+        %p.thumb-job__info__content__company__name
+          = work.company.name
+      %h3.thumb-job__info__content__title
+        title
+      %p.thumb-job__info__content__desc
+        = work.outline
+      %p.thumb-job__info__content__utility
+        募集終了まで
+        %span.thumb-job__info__content__utility__date
+          - due_date = (work.recruitment_end_date - Date.today).to_i
+          - if due_date < 0
+            0 日
+          - else
+            = due_date
+            日
+        %span.thumb-job__info__content__utility__view
+          530
+          %span
+            view
+      .thumb-job__info__content__taglists
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", class: "thumb-job__info__content__taglists__image",size: "18x18", alt: "タグ")
+        %ul.thumb-job__info__content__taglists__list
+          - work.tags.each do |tag|
+            %li.thumb-job__info__content__taglists__list__item
+              = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-02.svg", size: "14x14")
+              = tag.name
+      .thumb-job__info__content__fee
+        .thumb-job__info__content__fee__inner-01
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg", class: "thumb-job__info__content__fee__inner-01__image", alt: "金額", size: "22x22")
+          %p.thumb-job__info__content__fee__inner-01__desc
+            = work.fee
