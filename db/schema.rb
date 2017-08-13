@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805052322) do
+ActiveRecord::Schema.define(version: 20170812023121) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -76,9 +76,6 @@ ActiveRecord::Schema.define(version: 20170805052322) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.string   "name",                                              null: false
-    t.integer  "birth_year"
-    t.integer  "birth_month"
-    t.integer  "birth_day"
     t.integer  "sex"
     t.bigint   "phone_number"
     t.string   "division"
@@ -86,9 +83,9 @@ ActiveRecord::Schema.define(version: 20170805052322) do
     t.string   "address"
     t.text     "job_experience",         limit: 65535
     t.text     "trip_experience",        limit: 65535
-    t.text     "skills",                 limit: 65535
     t.text     "activity",               limit: 65535
     t.text     "introduction",           limit: 65535
+    t.date     "birth_day"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -124,6 +121,7 @@ ActiveRecord::Schema.define(version: 20170805052322) do
     t.integer  "company_id",                               null: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.string   "title",                                    null: false
     t.index ["company_id"], name: "index_works_on_company_id", using: :btree
   end
 
