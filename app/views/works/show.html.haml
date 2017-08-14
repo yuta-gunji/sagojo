@@ -1,0 +1,95 @@
+#wrap
+  = render partial: 'layouts/header'
+  .main-content-type-05
+    .left-content
+      .inner
+        %article.work-detail-01
+          .utility-03
+            %p.utility-03__content
+              %span.utility-03__content__due-date
+                募集終了まで
+                - due_date = (@work.recruitment_end_date - Date.today).to_i
+                - if due_date < 0
+                  0 日
+                - else
+                  = due_date
+                  日
+              %span.utility-03__content__view-count 2878 view
+          %h1.work-title
+            = @work.title
+          .work-image
+            = image_tag @work.image, class: "work-image__view" if @work.image.present?
+          .work-tbl-01
+            %table.work-tbl-01__content
+              %tr.work-tbl-01__content__row
+                %p.work-tbl-01__content__row--top 募集概要
+              %tr.work-tbl-01__content__row
+                %th.work-tbl-01__content__row__head 仕事内容
+                %td.work-tbl-01__content__row__data
+                  = @work.outline
+              %tr.work-tbl-01__content__row
+                %th.work-tbl-01__content__row__head リターン(報酬)
+                %td.work-tbl-01__content__row__data
+                  = @work.fee
+              %tr.work-tbl-01__content__row
+                %th.work-tbl-01__content__row__head 応募資格
+                %td.work-tbl-01__content__row__data
+                  = @work.qualification_requirements
+              %tr.work-tbl-01__content__row
+                %th.work-tbl-01__content__row__head 募集人数
+                %td.work-tbl-01__content__row__data
+                  = @work.headcount
+              %tr.work-tbl-01__content__row
+                %th.work-tbl-01__content__row__head エリア
+                %td.work-tbl-01__content__row__data
+                  = @work.area
+              %tr.work-tbl-01__content__row
+                %th.work-tbl-01__content__row__head 企業名
+                %td.work-tbl-01__content__row__data
+                  = @work.company.name
+          .application-flow
+            %h2.application-flow__head 応募の流れ
+            %ol.application-flow__lists
+              %li.application-flow__lists__list
+                %dl.application-flow__lists__list__data
+                  %dt.application-flow__lists__list__data--top 応募締め切り
+                  %dd.application-flow__lists__list__data--bottom
+                    = @work.recruitment_end_date.strftime("%Y年 %m月 %d日")
+              %li.application-flow__lists__list
+                %dl.application-flow__lists__list__data
+                  %dt.application-flow__lists__list__data--top 選出された方へ連絡
+                  %dd.application-flow__lists__list__data--bottom 応募の中から選出された方には、締切日から2週間以内にご連絡いたします。
+              %li.application-flow__lists__list
+                %dl.application-flow__lists__list__data
+                  %dt.application-flow__lists__list__data--top 面接へ進む
+                  %dd.application-flow__lists__list__data--bottom SAGOJO・企業と面接させていただきます。
+              %li.application-flow__lists__list
+                %dl.application-flow__lists__list__data
+                  %dt.application-flow__lists__list__data--top 旅がシゴトに！
+                  %dd.application-flow__lists__list__data--bottom 実際に旅をして、シゴトを実行していただきます。
+          .application-btn
+            = link_to "応募画面へ進む", root_path, class: "application-btn__link"
+    .right-content
+      .side-work
+        .side-work__inner.side-work__category
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-category.svg", alt: "カテゴリ", class: "side-work__category--image")
+          - @work.categories.each do |category|
+            %p.side-work__category--text
+              = category.name
+        .side-work__inner.side-work__company
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg", alt: "会社名", class: "side-work__company--image")
+          %p.side-work__company--name
+            = @work.company.name
+        .side-work__inner.side-work__fee
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg", alt: "金額", class: "side-work__fee--image")
+          %p.side-work__fee--text
+            = @work.fee
+        .side-work__inner.side-work__tag
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", alt: "タグ", class: "side-work__tag--image")
+          - @work.tags.each do |tag|
+            %ul.side-work__tag__lists
+              %li.side-work__tag__lists__list
+                = tag.name
+  = render partial: 'layouts/footer'
+
+
