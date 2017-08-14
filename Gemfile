@@ -72,3 +72,5 @@ gem 'rails-i18n'
 gem 'carrierwave'
 
 gem 'mini_magick', require: 'mini_magick'
+
+gem 'fog'
