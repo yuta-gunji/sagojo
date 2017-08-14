@@ -1,5 +1,5 @@
 class Work < ApplicationRecord
-  validates :outline, presence: true
+  validates :title, presence: true
   belongs_to :company
   has_many :work_categories
   has_many :work_tags
