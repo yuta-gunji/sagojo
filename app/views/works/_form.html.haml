@@ -1,0 +1,73 @@
+= form_for [@company, @work] do |f|
+  %h2.company-name
+    = @company.name
+  - if @work.errors.present?
+    .work-form-errors
+      %h2
+        = "#{@work.errors.count}項目のエラーが発生しました"
+      %ul.work-form-errors__lists
+        - @work.errors.full_messages.each do |message|
+          %li.work-form-errors__lists__list
+            = message
+  .form-wrap-02
+    = f.label :title, class: "label-02" do
+      求人タイトル
+    = f.text_field :title, class: "textbox-03 type-01"
+  .form-wrap-02
+    = f.label :outline, class: "label-02" do
+      求人概要
+    = f.text_area :outline, class: "textarea-02 type-01"
+  .form-wrap-02
+    = f.label :image, class: "label-02" do
+      イメージ画像
+    = f.file_field :image, class: "work_image"
+  .form-wrap-02
+    %label.label-02{ for: 'category-select-field' }
+      職種(カテゴリー)  ※最低1つ入力してください
+    .category-select
+      %ul.category-select__lists
+        %li.category-select__lists__input
+          %input.category-select__lists__input--field{id: "category-select-field"}
+          %a.category-select__lists__input--add
+            追加
+    #category-search-result
+  .form-wrap-02
+    %label.label-02{ for: 'tag-select-field' }
+      必要なスキルなど(タグ)  ※最低1つ入力してください
+    .tag-select
+      %ul.tag-select__lists
+        %li.tag-select__lists__input
+          %input.tag-select__lists__input--field{id: "tag-select-field"}
+          %a.tag-select__lists__input--add
+            追加
+    #tag-search-result
+  .form-wrap-02
+    = f.label :fee, class: "label-02" do
+      リターン(報酬)
+    = f.text_field :fee, class: "textbox-03 type-01"
+  .form-wrap-02
+    = f.label :qualification_requirements, class: "label-02" do
+      必要資格
+    = f.text_area :qualification_requirements, class: "textarea-02 type-01"
+  .form-wrap-02
+    = f.label :headcount, class: "label-02" do
+      募集人数
+    = f.text_field :headcount, class: "textbox-03 type-01"
+  .form-wrap-02
+    = f.label :span, class: "label-02" do
+      就業期間
+    = f.text_field :span, class: "textbox-03 type-01"
+  .form-wrap-02
+    = f.label :area, class: "label-02" do
+      就業エリア
+    = f.text_field :area, class: "textbox-03 type-01"
+  .form-wrap-02
+    = f.label :recruitment_end_date, class: "label-02" do
+      募集終了日
+    .due-date
+      = f.date_select(:recruitment_end_date,
+        start_year: Date.today.year,
+        end_year: Date.today.year + 2,
+        class: 'due-date__select-list')
+  .form-submit
+    =f.submit class: "form-submit__btn", data:{ disable_with: '登録する' }
