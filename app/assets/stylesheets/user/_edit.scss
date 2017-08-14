@@ -80,10 +80,10 @@
               box-shadow: none;
               outline: none;
             }
-            .textbox-02.type-01:hover {
+            .textbox-02:hover {
              border-color : #a0a0a0;
             }
-            .textbox-02.type-01:focus {
+            .textbox-02:focus {
               border-color: #ffcb00;
             }
             .textbox-02.type-02 {
@@ -95,12 +95,6 @@
               border-radius: 25px;
               box-shadow: none;
               outline: none;
-            }
-            .textbox-02.type-02:hover {
-              border-color: #a0a0a0;
-            }
-            .textbox-02.type-02:focus {
-              border-color: #ffcb00;
             }
             .textarea-01 {
               width: calc(100% - 50px);

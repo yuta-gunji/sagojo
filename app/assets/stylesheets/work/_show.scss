@@ -1,0 +1,186 @@
+.main-content-type-05 {
+  width: 1090px;
+  margin: 15px auto;
+  @include clearfix();
+  .left-content {
+    width: 690px;
+    float: left;
+    .inner {
+      .work-detail-01 {
+        padding: 30px 20px;
+        position: relative;
+        color: #212121;
+        background-color: #fff;
+        .utility-03 {
+          @include clearfix();
+          &__content{
+            font-size: 11px;
+            float: right;
+            margin: 0 30px 10px 0;
+            color: #aeaeae;
+            &__due-date {
+              font-weight: bold;
+            }
+            &__view-count {
+              margin-left: 10px;
+              padding-left: 10px;
+              border-left: 1px solid #ddd;
+            }
+          }
+        }
+        .work-title {
+          font-size: 26px;
+          letter-spacing: 2px;
+          margin: 30px 0;
+        }
+        .work-image {
+          margin-bottom: 30px;
+          &__view {
+            display: block;
+            object-fit: cover;
+            width: 650px;
+            height: calc(650px * 2 / 3);
+          }
+        }
+        .work-tbl-01 {
+          margin: 30px 0 60px;
+          &__content {
+            &__row {
+              &--top {
+                font-weight: bold;
+                background-color: #f8f8f8;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-bottom: none;
+              }
+              &__head {
+                width: 160px;
+                font-weight: bold;
+                background-color: #f8f8f8;
+                padding: 15px;
+                border: 1px solid #ddd;
+              }
+              &__data {
+                padding: 15px;
+                border: 1px solid #ddd;
+                width: calc(650px - 190px - 30px - 3px);
+
+              }
+            }
+          }
+        }
+        .application-flow {
+          margin-top: 30px;
+          padding: 25px 45px 15px;
+          border: 10px solid #eaeaea;
+          background-color: #fff;
+          &__head {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+          }
+          &__lists {
+            padding-top: 20px;
+            list-style-type : decimal;
+            &__list {
+              padding-bottom: 20px;
+              &__data {
+                &--top {
+                  font-weight: bold;
+                  margin-bottom: 5px;
+                }
+                &--bottom {
+                  font-size: 12px;
+                  color: #aeaeae;
+                }
+              }
+            }
+          }
+        }
+        .application-btn {
+          
+          &__link {
+            display: block;
+            width: 40%;
+            font-size: 16px;
+            color: #fff;
+            padding: 20px 50px;
+            margin: 30px auto 15px;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 3px;
+            border-radius: 100px;
+            border-style: none;
+            background-color: #ffcb00;
+            outline: none;
+          }
+          &__link:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+  .right-content {
+    width: 340px;
+    float: right;
+    font-size: 14px;
+    .side-work {
+      &__inner {
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #f5f5f5;
+      }
+      &__category {
+        @include clearfix();
+        &--image {
+          margin-top: 5px;
+          float: left;
+        }
+        &--text {
+          overflow: hidden;
+          margin-left: 15px;
+          float: left;
+        }
+      }
+      &__company {
+        @include clearfix();
+        &--image {
+          float: left;
+        }
+        &--name {
+          float: left;
+          margin-left: 15px;
+        }
+
+      }
+      &__fee {
+        @include clearfix();
+        &--image {
+          float: left;
+        }
+        &--text {
+          float: left;
+          margin-left: 15px;
+        }
+      }
+      
+      &__tag {
+        @include clearfix();
+        &--image {
+          float: left;
+        }
+        &__lists {
+          padding-left: 20px;
+          &__list {
+            float: left;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
