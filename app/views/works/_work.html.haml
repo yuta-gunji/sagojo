@@ -1,5 +1,5 @@
 .thumb-job
-  = link_to root_path, class: "thumb-job__info", method: :get do
+  = link_to company_work_path(work.company.id, work.id), class: "thumb-job__info", method: :get do
     .thumb-job__info__image
       = image_tag work.image_url(:thumb), class: "thumb-job__info__image--tag" if work.image.present?
     .thumb-job__info__content
