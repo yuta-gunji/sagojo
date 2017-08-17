@@ -1,7 +1,10 @@
 $(function() {
 
   var category_num = $('.category-select__lists__list').length;
+  //どのモデルのレコードを作成・更新するのかの指定
+  var modelName = $('.model_name').val();
 
+  //インクリメントサーチのリスト
   function buildCategoryList(category) {
     var html = `<li class="category-search-result__list">
                   <a class="category-search-result__list--add", data-category-id="${ category.id }" data-category-name="${ category.name }">
@@ -11,32 +14,35 @@ $(function() {
     $("#category-search-result").append(html);
   }
 
+  //インクリメントサーチリストからの選択
   function selectCategory(category) {
     var category_id = category.attr('data-category-id');
     var category_name = category.attr('data-category-name');
     var html =
         `<li class="category-select__lists__list" id="add_category_${category_num}">
-           <input name='work[category_ids][]' type='hidden' value="${ category_id }">
+           <input name='${ modelName }[category_ids][]' type='hidden' value="${ category_id }">
            <span class='category-select__lists__list--name'>${ category_name }</span>
-           <span class="category-select__lists__list--delete" data-id="${ category_num }", data-default="default">
+           <span class="category-select__lists__list--delete" data-id="${ category_num }">
              ×
            </span>
-         </div>`
+         </li>`
     $('.category-select__lists').prepend(html);
   }
 
+  //新規カテゴリーの追加
   function addCategory(input) {
     var html =
         `<li class="category-select__lists__list" id="add_category_${category_num}">
-           <input class="category-select__lists__list--added" type="hidden" name="work[categories_attributes][${ category_num }][name]" id="categories_attributes_${category_num}_name" value="${ input }">
+           <input class="category-select__lists__list--added" type="hidden" name="${ modelName }[categories_attributes][${ category_num }][name]" id="categories_attributes_${category_num}_name" value="${ input }">
            <span class='category-select__lists__list--name'>${ input }</span>
-           <a class="category-select__lists__list--delete" data-id="${ category_num }", data-default="default">
+           <span class="category-select__lists__list--delete" data-id="${ category_num }">
              ×
-           </a>
-         </div>`
+           </span>
+         </li>`
       $('.category-select__lists').prepend(html);
   }
 
+  //インクリメントサーチ
   $(".category-select__lists__input--field").on("keyup", function() {
     var input = $('.category-select__lists__input--field').val();
     if(input !== "") {
@@ -51,7 +57,6 @@ $(function() {
       data: { keyword: input },
       dataType: 'json'
     })
-
     .done(function(categories) {
       $("#category-search-result").empty();
       if (input.length !== 0 && categories.length !== 0) {
@@ -69,6 +74,7 @@ $(function() {
     $(".category-select__lists__input--field").focus();
   });
 
+  //インクリメントサーチの結果を追加してcategory_numを+1
   $(document).on("click", ".category-search-result__list--add", function() {
     $(this).parent().remove();
     selectCategory($(this));
@@ -77,10 +83,7 @@ $(function() {
     category_num ++;
   });
 
-  $(document).on("click", ".category-select__lists__list--remove", function() {
-    $(this).parent().remove();
-  });
-
+  //新規カテゴリーを追加してcategory_numを+1
   $('.category-select__lists__input--add').on('click', function() {
     var input = $('.category-select__lists__input--field').val();
     if(input !== "") {
@@ -91,9 +94,9 @@ $(function() {
     }
   });
 
+  //カテゴリーの削除
   $(document).on('click', '.category-select__lists__list--delete', function() {
     var inputId = $(this).data('id');
-    var defaultData = $(this).data('default');
     $('#add_category_' + inputId).remove();
   });
 
