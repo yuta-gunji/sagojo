@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @user.categories.build
+    @user.tags.build
   end
 
   def update
@@ -14,7 +16,9 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:sex,
+    params.require(:user).permit(
+      :avatar,
+      :sex,
       :phone_number,
       :division,
       :municipality,
@@ -23,7 +27,11 @@ class UsersController < ApplicationController
       :trip_experience,
       :activity,
       :introduction,
-      :birth_day
+      :birth_day,
+      category_ids: [],
+      tag_ids: [],
+      categories_attributes: [:id, :name],
+      tags_attributes: [:id, :name]
     )
   end
 end
