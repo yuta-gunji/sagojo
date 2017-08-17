@@ -1,4 +1,5 @@
 = form_for [@company, @work] do |f|
+  %input.model_name{name: "model_name", type: "hidden", value: "work" }
   %h2.company-name
     = @company.name
   - if @work.errors.present?
