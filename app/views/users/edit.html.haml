@@ -6,81 +6,10 @@
   .main-content-type-02
     .left-content
       .profile-area-01
-        = form_for @user, class: "edit_user" do |f|
-          .user-image
-          %h2.user-name
-            = @user.name
-          .form-wrap-01
-            = f.label :birth_day, class: "label-01" do
-              生年月日
-            .select-list
-              = f.date_select(:birth_day,
-                start_year: Date.today.year,
-                end_year: Date.today.year - 60,
-                class: 'select-list__birth-day')
-          .form-wrap-01
-            = f.label :sex, class: "label-01" do
-              性別
-            .radio-01
-              = f.radio_button :sex, 0, id: 'male'
-              = f.label :male, class: "radio-01__label" do
-                男性
-            .radio-01
-              = f.radio_button :sex, 1, id: 'female'
-              = f.label :female, class: "radio-01__label" do
-                女性
-            .radio-01
-              = f.radio_button :sex, 2, id: 'genderless'
-              = f.label :genderless, class: "radio-01__label" do
-                その他
-          .form-wrap-01
-            = f.label :phone_number, class: "label-01" do
-              電話番号（半角）
-            = f.text_field :phone_number, placeholder: "例：01234567890（ハイフンなし）", class: "textbox-02 type-01"
-          .form-wrap-01
-            = f.label :division, class: "label-01" do
-              都道府県
-            = f.text_field :division, class: "textbox-02 type-01"
-          .form-wrap-01
-            = f.label :municipality, class: "label-01" do
-              市区町村
-            = f.text_field :municipality, class: "textbox-02 type-02"
-          .form-wrap-01
-            = f.label :address, class: "label-01" do
-              番地、ビル・マンション名
-            = f.text_field :address, class: "textbox-02 type-02"
-          .form-wrap-01
-            /インクリで選択できるようにする
-            / = f.label :categorys do
-            /   職種（タグ）
-            / = f.text_field :category_ids[], placeholder: "例：ライター、フォトグラファー、動画ディレクター"
-          .form-wrap-01
-            = f.label :job_experience, class: "label-01" do
-              就業経験・学歴など
-            = f.text_area :job_experience, class: "textarea-01", placeholder: "例：\n2010年3月：天竺大学卒業 2011年4月～2013年11月：株式会社流沙河出版にて旅行雑誌の編集業務に携わる。\n2013年12月～現在：独立しフリーランスのライター、編集者として活動。\n写真や動画撮影の仕事をうけることもあります。"
-          .form-wrap-01
-            = f.label :trip_experience, class: "label-01" do
-              旅の経験
-            = f.text_area :trip_experience, class: "textarea-01", placeholder: "例：\n【国内】\n自転車移動、テント泊で北海道を旅しました。\n【海外】\nインド（3週間）、ヨルダン・イスラエル（2週間）、フランス（4日間）の5ヶ国を旅しました。"
-          .form-wrap-01
-            /インクリで選択できるようにする
-            = f.label :skills, class: "label-01" do
-              あなたのスキル・得意なこと
-            = f.text_area :skills, class: "textarea-01", placeholder: "例：ライティング、写真撮影、動画編集"
-          .form-wrap-01
-            = f.label :activity, class: "label-01" do
-              過去のご実績・ご活動
-            = f.text_area :activity, class: "textarea-01", placeholder: "携わった作品・プロジェクトなどできるだけ詳細に記入してください。\n例：\n過去に執筆した主な記事は以下の通りです。\nhttp://www.sagojo.link/sample1\nhttp://www.sagojo.link/sample2\n下記の動画の撮影、編集も担当しました。\nhttp://www.sagojo.link/sample3"
-          .form-wrap-01
-            = f.label :introduction, class: "label-01" do
-              自己紹介文
-            = f.text_area :introduction, class: "textarea-01", placeholder: "その他あなたに関する情報をご記入ください。"
-          .form-submit
-            =f.submit name: "comit" ,class: "form-submit__btn", value: "更新する", data:{ disable_with: '更新する' }
+        = render partial: 'form'
     .right-content
       .side-profile-01
       .side-btn-area-01
       .side-profile-01.candidacy
       .side-btn-area-01
-
   = render partial: 'layouts/footer'
