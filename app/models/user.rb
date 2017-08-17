@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :user_tags
   has_many :categories, through: :user_categories
   has_many :tags, through: :user_tags
+  accepts_nested_attributes_for :categories
+  accepts_nested_attributes_for :tags
+  mount_uploader :avatar, ImageUploader
 end
