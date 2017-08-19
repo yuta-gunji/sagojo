@@ -1,0 +1,107 @@
+= form_for @user, class: "edit_user" do |f|
+  %input.model_name{name: "model_name", type: "hidden", value: "user" }
+  .user-image
+    - if @user.avatar.present?
+      = image_tag @user.avatar, class: "user-thumbnail"
+    - else
+      = image_tag('https://cyobiblog.com/wp-content/uploads/2016/08/9803_avatar0709173216-300x300.png', class: "user-thumbnail")
+    = f.label :avatr, class: "user-imgae__label", for: "user_avatar" do
+      = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/icon-prof-camera.svg', class: "user-image__label--image")
+    = f.file_field :avatar, class: "user-image__field"
+  %h2.user-name
+    = @user.name
+  .form-wrap-01
+    = f.label :birth_day, class: "label-01" do
+      生年月日
+    .select-list
+      = f.date_select(:birth_day,
+        start_year: Date.today.year,
+        end_year: Date.today.year - 60,
+        class: 'select-list__birth-day')
+  .form-wrap-01
+    = f.label :sex, class: "label-01" do
+      性別
+    .radio-01
+      = f.radio_button :sex, 0, id: 'male'
+      = f.label :male, class: "radio-01__label", for: 'male' do
+        男性
+    .radio-01
+      = f.radio_button :sex, 1, id: 'female'
+      = f.label :female, class: "radio-01__label", for: 'female' do
+        女性
+    .radio-01
+      = f.radio_button :sex, 2, id: 'genderless'
+      = f.label :genderless, class: "radio-01__label", for: 'genderless' do
+        その他
+  .form-wrap-01
+    = f.label :phone_number, class: "label-01" do
+      電話番号（半角）
+    = f.text_field :phone_number, placeholder: "例：01234567890（ハイフンなし）", class: "textbox-02 type-01"
+  .form-wrap-01
+    = f.label :division, class: "label-01" do
+      都道府県
+    = f.text_field :division, class: "textbox-02 type-01"
+  .form-wrap-01
+    = f.label :municipality, class: "label-01" do
+      市区町村
+    = f.text_field :municipality, class: "textbox-02 type-02"
+  .form-wrap-01
+    = f.label :address, class: "label-01" do
+      番地、ビル・マンション名
+    = f.text_field :address, class: "textbox-02 type-02"
+  .form-wrap-01
+    %label.label-01{ for: 'category-select-field' }
+      職種(カテゴリー)  ※最低1つ入力してください
+      %br
+      例: ライター、フォトグラファー、動画ディレクター
+    .category-select
+      %ul.category-select__lists
+        - @user.categories.each_with_index do |category, i|
+          - if category.name != nil
+            %li.category-select__lists__list{ id: "add_category_#{i}" }
+              %input{ name: "user[category_ids][]", type: "hidden", value: category.id}
+              %span.category-select__lists__list--name
+                = category.name
+              %span.category-select__lists__list--delete{ data:{ id: "#{i}", default: "default" } } ×
+        %li.category-select__lists__input
+          %input.category-select__lists__input--field{id: "category-select-field"}
+          %span.category-select__lists__input--add
+            追加
+    #category-search-result
+  .form-wrap-01
+    = f.label :job_experience, class: "label-01" do
+      就業経験・学歴など
+    = f.text_area :job_experience, class: "textarea-01", placeholder: "例：\n2010年3月：天竺大学卒業 2011年4月～2013年11月：株式会社流沙河出版にて旅行雑誌の編集業務に携わる。\n2013年12月～現在：独立しフリーランスのライター、編集者として活動。\n写真や動画撮影の仕事をうけることもあります。"
+  .form-wrap-01
+    = f.label :trip_experience, class: "label-01" do
+      旅の経験
+    = f.text_area :trip_experience, class: "textarea-01", placeholder: "例：\n【国内】\n自転車移動、テント泊で北海道を旅しました。\n【海外】\nインド（3週間）、ヨルダン・イスラエル（2週間）、フランス（4日間）の5ヶ国を旅しました。"
+  .form-wrap-01
+    %label.label-01{ for: 'tag-select-field' }
+      得意なことやスキルなど(タグ)  ※最低1つ入力してください
+      %br
+      例: ライティング、写真撮影、動画編集
+    .tag-select
+      %ul.tag-select__lists
+        - @user.tags.each_with_index do |tag, i|
+          - if tag.name != nil
+            %li.tag-select__lists__list{ id: "add_tag_#{i}" }
+              %input{ name: "user[tag_ids][]", type: "hidden", value: tag.id}
+              %span.tag-select__lists__list--name
+                = tag.name
+              %span.tag-select__lists__list--delete{ data:{ id: "#{i}", default: "default" } } ×
+        %li.tag-select__lists__input
+          %input.tag-select__lists__input--field{id: "tag-select-field"}
+          %span.tag-select__lists__input--add
+            追加
+    #tag-search-result
+  .form-wrap-01
+    = f.label :activity, class: "label-01" do
+      過去のご実績・ご活動
+    = f.text_area :activity, class: "textarea-01", placeholder: "携わった作品・プロジェクトなどできるだけ詳細に記入してください。\n例：\n過去に執筆した主な記事は以下の通りです。\nhttp://www.sagojo.link/sample1\nhttp://www.sagojo.link/sample2\n下記の動画の撮影、編集も担当しました。\nhttp://www.sagojo.link/sample3"
+  .form-wrap-01
+    = f.label :introduction, class: "label-01" do
+      自己紹介文
+    = f.text_area :introduction, class: "textarea-01", placeholder: "その他あなたに関する情報をご記入ください。"
+  .form-submit
+    =f.submit name: "comit" ,class: "form-submit__btn", value: "更新する", data:{ disable_with: '更新する' }

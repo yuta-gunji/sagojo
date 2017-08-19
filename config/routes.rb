@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :works, only: :index
   resources  :companies, only: :show do
     resources :works, only: [:new, :create, :show]
+    get     'works/:id/form'  =>  'works#form'
+    patch   'works/:id/form'  =>  'works#apply'
   end
   resources :categories, only: :index
   resources :tags, only: :index

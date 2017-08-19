@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
   before_action :set_company, only: [:new, :create]
+  before_action :set_work, only: [:show, :form]
 
   def index
     @works = Work.order('created_at DESC').limit(5)
@@ -21,10 +22,31 @@ class WorksController < ApplicationController
   end
 
   def show
-    @work = Work.find(params[:id])
+  end
+
+  def form
+    @user = current_user
+    @user.categories.build
+    @user.tags.build
+  end
+
+  def apply
+    if current_user.update(apply_params)
+      redirect_to root_path
+    else
+      render :form
+    end
   end
 
   private
+
+  def set_company
+    @company = Company.find(params[:company_id])
+  end
+
+  def set_work
+    @work = Work.find(params[:id])
+  end
 
   def work_params
     work_param = params.require(:work).permit(
@@ -44,8 +66,25 @@ class WorksController < ApplicationController
     ).merge(company_id: params[:company_id])
   end
 
-  def set_company
-    @company = Company.find(params[:company_id])
+  def apply_params
+    params.require(:user).permit(
+      :avatar,
+      :sex,
+      :phone_number,
+      :division,
+      :municipality,
+      :address,
+      :job_experience,
+      :trip_experience,
+      :activity,
+      :introduction,
+      :birth_day,
+      category_ids: [],
+      tag_ids: [],
+      work_ids: [],
+      categories_attributes: [:id, :name],
+      tags_attributes: [:id, :name]
+    )
   end
 
 end

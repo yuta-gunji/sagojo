@@ -68,7 +68,7 @@
                   %dt.application-flow__lists__list__data--top 旅がシゴトに！
                   %dd.application-flow__lists__list__data--bottom 実際に旅をして、シゴトを実行していただきます。
           .application-btn
-            = link_to "応募画面へ進む", root_path, class: "application-btn__link"
+            = link_to "応募画面へ進む", "/companies/#{@work.company.id}/works/#{@work.id}/form", class: "application-btn__link"
     .right-content
       .side-work
         .side-work__inner.side-work__category
