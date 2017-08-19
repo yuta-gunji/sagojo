@@ -1,6 +1,7 @@
-$(function() {
-
+$(document).on('turbolinks:load', function(){
+  //保存済みのカテゴリーの数をカウント
   var category_num = $('.category-select__lists__list').length;
+
   //どのモデルのレコードを作成・更新するのかの指定
   var modelName = $('.model_name').val();
 

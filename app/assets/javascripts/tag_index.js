@@ -1,5 +1,5 @@
-$(function() {
-
+$(document).on('turbolinks:load', function(){
+  //保存済みのタグの数をカウント
   var tag_num = $('.tag-select__lists__list').length;
 
   //どのモデルのレコードを作成・更新するのかの指定
