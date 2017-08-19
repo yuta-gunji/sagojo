@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816091744) do
+ActiveRecord::Schema.define(version: 20170818081613) do
+
+  create_table "candidates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "work_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_candidates_on_user_id", using: :btree
+    t.index ["work_id"], name: "index_candidates_on_work_id", using: :btree
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -126,6 +135,8 @@ ActiveRecord::Schema.define(version: 20170816091744) do
     t.index ["company_id"], name: "index_works_on_company_id", using: :btree
   end
 
+  add_foreign_key "candidates", "users"
+  add_foreign_key "candidates", "works"
   add_foreign_key "user_categories", "categories"
   add_foreign_key "user_categories", "users"
   add_foreign_key "user_tags", "tags"
