@@ -66,4 +66,25 @@ class WorksController < ApplicationController
     ).merge(company_id: params[:company_id])
   end
 
+  def apply_params
+    params.require(:user).permit(
+      :avatar,
+      :sex,
+      :phone_number,
+      :division,
+      :municipality,
+      :address,
+      :job_experience,
+      :trip_experience,
+      :activity,
+      :introduction,
+      :birth_day,
+      category_ids: [],
+      tag_ids: [],
+      work_ids: [],
+      categories_attributes: [:id, :name],
+      tags_attributes: [:id, :name]
+    )
+  end
+
 end
