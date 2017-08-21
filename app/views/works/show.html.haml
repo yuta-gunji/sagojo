@@ -7,11 +7,11 @@
           .utility-03
             %p.utility-03__content
               %span.utility-03__content__due-date
-                募集終了まで
                 - due_date = (@work.recruitment_end_date - Date.today).to_i
                 - if due_date < 0
-                  0 日
+                  募集終了
                 - else
+                  募集終了まで
                   = due_date
                   日
               %span.utility-03__content__view-count 2878 view
