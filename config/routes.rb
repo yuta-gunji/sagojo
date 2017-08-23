@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   }
   root   'works#index'
   resources :users, only: [:edit, :update]
-  resources :works, only: :index
+  resources :works, only: :index do
+    get 'page/:page', action: :index, on: :collection
+  end
   resources  :companies, only: :show do
     resources :works, only: [:new, :create, :show]
     get     'works/:id/form'  =>  'works#form'
