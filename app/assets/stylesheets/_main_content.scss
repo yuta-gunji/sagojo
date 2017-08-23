@@ -101,7 +101,6 @@
               float: left;
               font-size: 11px;
               font-weight: bold;
-              
               &__desc {
                 display: block;
                 float: left;
@@ -122,6 +121,39 @@
     }
     .thumb-job:hover {
       opacity: 0.8;
+    }
+    .pagination {
+      margin: 60px auto 0;
+      width: 690px;
+      display: inline-block;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      .current {
+        width: 40px;
+        height: 50px;
+        border: 1px solid #ddd;
+        background-color: #ffcb00;
+      }
+      .gap {
+        width: 40px;
+        height: 50px;
+        border: 1px solid #ddd;
+      }
+      &__list {
+        display: inline-block;
+        background-color: #fff;
+        line-height: 58px;
+        margin: 0 3px;
+        &__link {
+          display: block;
+          width: 40px;
+          height: 50px;
+          color: #000;
+          text-decoration: none;
+          border: 1px solid #ddd;
+        }
+      }
     }
   }
   .right-content {

@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   before_action :set_work, only: [:show, :form]
 
   def index
-    @works = Work.order('created_at DESC').limit(5)
+    @works = Work.order('created_at DESC').page(params[:page]).per(5)
   end
 
   def new

@@ -2,6 +2,7 @@
   .left-content
     %h2.top-hdg-01 新着のシゴト
     = render @works
+    = paginate(@works, window: 2, outer_window: 1)
   .right-content
     = link_to root_path, class: "topbanner", method: :get do
       = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/top_banner02.png", class: "topbanner__image", size: "340x282")
