@@ -8,8 +8,9 @@ $(document).on('turbolinks:load', function(){
   //インクリメントサーチのリスト
   function buildCategoryList(category) {
     var html = `<li class="category-search-result__list">
-                  <a class="category-search-result__list--add", data-category-id="${ category.id }" data-category-name="${ category.name }">
+                  <a class="category-search-result__list--add", data-category-id="${ category.id }" data-category-name="${ category.name }" data-category-count="${ category.count }">
                     ${ category.name }
+                    (${ category.count })
                   </a>
                 </li>`
     $("#category-search-result").append(html);
@@ -19,10 +20,14 @@ $(document).on('turbolinks:load', function(){
   function selectCategory(category) {
     var category_id = category.attr('data-category-id');
     var category_name = category.attr('data-category-name');
+    var category_count = category.attr('data-category-count');
     var html =
         `<li class="category-select__lists__list" id="add_category_${category_num}">
            <input name='${ modelName }[category_ids][]' type='hidden' value="${ category_id }">
-           <span class='category-select__lists__list--name'>${ category_name }</span>
+           <span class='category-select__lists__list--name'>
+            ${ category_name }
+            (${ category_count })
+           </span>
            <span class="category-select__lists__list--delete" data-id="${ category_num }">
              ×
            </span>

@@ -8,8 +8,9 @@ $(document).on('turbolinks:load', function(){
   //インクリメントサーチのリスト
   function buildTagList(tag) {
     var html = `<li class="tag-search-result__list">
-                  <a class="tag-search-result__list--add", data-tag-id="${ tag.id }" data-tag-name="${ tag.name }">
+                  <a class="tag-search-result__list--add", data-tag-id="${ tag.id }" data-tag-name="${ tag.name }" data-tag-count="${ tag.count }">
                     ${ tag.name }
+                    (${ tag.count })
                   </a>
                 </li>`
     $("#tag-search-result").append(html);
@@ -19,10 +20,14 @@ $(document).on('turbolinks:load', function(){
   function selectTag(tag) {
     var tag_id = tag.attr('data-tag-id');
     var tag_name = tag.attr('data-tag-name');
+    var tag_count = tag.attr('data-tag-count');
     var html =
         `<li class="tag-select__lists__list" id="add_tag_${tag_num}">
            <input name='${ modelName }[tag_ids][]' type='hidden' value="${ tag_id }">
-           <span class='tag-select__lists__list--name'>${ tag_name }</span>
+           <span class='tag-select__lists__list--name'>
+            ${ tag_name }
+            (${ tag_count })
+           </span>
            <span class="tag-select__lists__list--delete" data-id="${ tag_num }">
              ×
            </span>

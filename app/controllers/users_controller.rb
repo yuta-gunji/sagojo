@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.categories.build
     @user.tags.build
+    @user_categories = UserCategory.all
+    @user_tags = UserTag.all
   end
 
   def update

@@ -1,4 +1,5 @@
 json.array! @tags do |tag|
-  json.id tag.id
-  json.name tag.name
+  json.id tag[:tag].id
+  json.name tag[:tag].name
+  json.count tag[:count]
 end
