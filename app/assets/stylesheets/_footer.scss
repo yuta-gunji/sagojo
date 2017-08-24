@@ -1,6 +1,6 @@
 #footer-01 {
   width: 100%;
-  padding: 75px 0 60px 0;
+  padding: 75px 0 100px 0;
   color: #fff;
   background-color: #232323;
   position: relative;
@@ -79,6 +79,43 @@
           cursor: pointer;
         }
       }
+    }
+    .earth {
+      height: 820px;
+      width: 794px;
+      margin: 0 auto;
+      .star1 {
+        position: absolute;
+        animation: anti-spin 15s linear infinite;
+      }
+      .star2 {
+        position: absolute;
+        animation: anti-spin 25s linear infinite;
+
+      }
+      .kinton {
+        position: absolute;
+        animation: spin 8s linear infinite;
+      }
+      .earth-image {
+        position: absolute;
+      }
+      @keyframes anti-spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(-360deg);}
+      }
+      @keyframes spin {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+      }
+    }
+    .copyright {
+      font-size: 14px;
+      font-family: "Arial Rounded MT", "Arial Rounded MT Bold";
+      text-align: center;
+      letter-spacing: 3px;
+      color: #b8b8b8;
+      padding-top: 30px;
     }
   }
 }
