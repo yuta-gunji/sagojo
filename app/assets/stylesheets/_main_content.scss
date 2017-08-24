@@ -270,3 +270,53 @@
     }
   }
 }
+.sub-content-type-01 {
+  padding: 100px 0;
+  background-color: #efefef;
+  .subnav-lists {
+    display: block;
+    width: 1090px;
+    margin: 0 auto;
+    @include clearfix();
+    .subnav-list {
+      float: left;
+      width: 260px;
+      text-align: center;
+      letter-spacing: 1px;
+      margin: 0 5px;
+      &__link {
+        display: block;
+        min-height: 325px;
+        padding: 65px 20px 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        &--image {
+          display: block;
+          margin: 0 auto 50px;
+        }
+        &--title {
+          margin-bottom: 20px;
+          font-size: 24px;
+        }
+        &--one-row {
+          line-height: 3;
+        }
+        &--desc {
+          font-size: 13px;
+        }
+      }
+    }
+    .for-beginner {
+      background-color: #5BC479;
+    }
+    .for-company {
+      background-color: #ffcb00;
+    }
+    .for-faq {
+      background-color: #ff726c;
+    }
+    .for-registration {
+      background-color: #3a94ff;
+    }
+  }
+}
