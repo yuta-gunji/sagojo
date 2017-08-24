@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def apply_list
+    @works = current_user.works.order('created_at DESC').page(params[:page]).per(10)
+  end
+
   private
   def user_params
     params.require(:user).permit(

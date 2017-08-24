@@ -1,0 +1,10 @@
+#wrap
+  = render partial: 'layouts/header'
+  .main-content-type1
+    .left-content
+      %h2.top-hdg-01 応募一覧
+      = render @works
+      = paginate(@works, window: 2, outer_window: 1)
+  = render partial: 'layouts/footer'
+
+

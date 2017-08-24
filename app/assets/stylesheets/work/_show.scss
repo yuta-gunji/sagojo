@@ -126,6 +126,8 @@
     float: right;
     font-size: 14px;
     .side-work {
+      position: sticky;
+      top: 86px;
       &__inner {
         padding: 20px;
         background-color: #fff;

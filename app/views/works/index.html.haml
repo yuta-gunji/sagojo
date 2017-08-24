@@ -3,7 +3,39 @@
   = render 'layouts/flash_message'
   .eyecatch-type-02
   = render partial: 'main_content'
-  .sub-content.type-02
+  .sub-content-type-01
+    %ul.subnav-lists
+      %li.subnav-list.for-beginner
+        = link_to root_path, class: "subnav-list__link" do
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-01.svg', class: "subnav-list__link--image")
+          %p.subnav-list__link--title
+            はじめての方は
+            %br
+            こちら
+          %p.subnav-list__link--desc SAGOJOの使い方を確認しよう
+      %li.subnav-list.for-company
+        = link_to root_path, class: "subnav-list__link" do
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-02.svg', class: "subnav-list__link--image")
+          %p.subnav-list__link--title
+            企業の方は
+            %br
+            こちら
+          %p.subnav-list__link--desc
+            SAGOJOがご提供できる価値を
+            %br
+            ご確認ください
+      %li.subnav-list.for-faq
+        = link_to root_path, class: "subnav-list__link" do
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-03.svg', class: "subnav-list__link--image")
+          %p.subnav-list__link--title.subnav-list__link--one-row
+            FAQ
+          %p.subnav-list__link--desc よくあるご質問はこちら
+      %li.subnav-list.for-registration
+        = link_to root_path, class: "subnav-list__link" do
+          = image_tag('https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-04.svg', class: "subnav-list__link--image")
+          %p.subnav-list__link--title.subnav-list__link--one-row
+            旅人登録
+          %p.subnav-list__link--desc 登録してシゴトに応募しよう
   %aside
   = render partial: 'layouts/footer'
 
