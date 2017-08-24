@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     registrations: 'companies/registrations'
   }
   root   'works#index'
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update] do
+    get     'apply_list'  =>  'users#apply_list'
+  end
   resources :works, only: :index do
     get 'page/:page', action: :index, on: :collection
   end
