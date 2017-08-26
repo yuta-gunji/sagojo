@@ -136,7 +136,6 @@
       &__category {
         @include clearfix();
         &--image {
-          margin-top: 5px;
           float: left;
         }
         &--text {
@@ -167,7 +166,7 @@
         }
       }
       
-      &__tag {
+      &__skill {
         @include clearfix();
         &--image {
           float: left;
