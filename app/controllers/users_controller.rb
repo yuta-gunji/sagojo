@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+  before_action  :authenticate_user!
+  before_action  :set_user, only: [:edit]
+  before_action  :set_user_categories_to_gon, only: [:edit]
+  before_action  :set_user_skills_to_gon, only: [:edit]
+  before_action  :set_available_user_categories_to_gon, only: [:edit]
+  before_action  :set_available_user_skills_to_gon, only: [:edit]
 
   def edit
-    @user = User.find(params[:id])
-    @user.categories.build
-    @user.tags.build
-    @user_categories = UserCategory.all
-    @user_tags = UserTag.all
   end
 
   def update
@@ -21,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(
       :avatar,
@@ -34,10 +36,29 @@ class UsersController < ApplicationController
       :activity,
       :introduction,
       :birth_day,
-      category_ids: [],
-      tag_ids: [],
-      categories_attributes: [:id, :name],
-      tags_attributes: [:id, :name]
+      :category_list,
+      :skill_list
     )
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def set_user_categories_to_gon
+    gon.user_categories = @user.category_list
+  end
+
+  def set_user_skills_to_gon
+    gon.user_skills = @user.skill_list
+  end
+
+  def set_available_user_categories_to_gon
+    gon.available_user_categories = User.tags_on(:categories).pluck(:name)
+  end
+
+  def set_available_user_skills_to_gon
+    gon.available_user_skills = User.tags_on(:skills).pluck(:name)
+  end
+
 end

@@ -76,3 +76,9 @@ gem 'mini_magick', require: 'mini_magick'
 gem 'fog'
 
 gem 'kaminari'
+
+gem 'acts-as-taggable-on'
+
+gem 'jquery-ui-rails'
+
+gem 'gon'

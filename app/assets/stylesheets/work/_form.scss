@@ -95,90 +95,34 @@
               border-color: #ffcb00;
             }
             .category-select {
-              &__lists {
+              #work-category-lists {
                 list-style: none;
                 width: calc(100% - 70px);
                 padding: 5px 15px;
                 border: 1px solid #ddd;
-                line-height: 35px;
+                line-height: 25px;
                 border-radius: 25px;
                 outline: none;
                 @include clearfix();
-                &__list {
-                  padding: 0 10px;
-                  background-color: yellow;
-                  border: none;
-                  border-radius: 15px;
-                  margin: 2px 5px 2px 0;
-                  float: left;
-                  &--name {
-                    margin-right: 5px;
-                  }
-                  &--delete {
-                    padding: 0 5px;
-                  }
-                }
-                &__input {
-                  float: left;
-                  &--field {
-                    margin: 2px 0;
-                    border: none;
-                    outline: none;
-                  }
-                  &--add {
-                    display: none;
-                  }
-                }
               }
-              &__lists:hover {
+              #work-category-lists:hover {
                 border-color: #a0a0a0;
               }
-            }
-            #category-search-result {
-              margin: 15px 0 0 20px;
             }
             .tag-select {
-              &__lists {
+              #work-tag-lists {
                 list-style: none;
                 width: calc(100% - 70px);
                 padding: 5px 15px;
                 border: 1px solid #ddd;
-                line-height: 35px;
+                line-height: 25px;
                 border-radius: 25px;
                 outline: none;
                 @include clearfix();
-                &__list {
-                  padding: 0 10px;
-                  background-color: yellow;
-                  border: none;
-                  border-radius: 15px;
-                  margin: 2px 5px 2px 0;
-                  float: left;
-                  &--name {
-                    margin-right: 5px;
-                  }
-                  &--delete {
-                    padding: 0 5px;
-                  }
-                }
-                &__input {
-                  float: left;
-                  &--field {
-                    margin: 2px 0;
-                    border: none;
-                    outline: none;
-                  }
-                  &--add {
-                    display: none;
-                  }
-                }
               }
-              &__lists:hover {
+              #work-tag-lists:hover {
                 border-color: #a0a0a0;
               }
-            }
-            #tag-search-result {
-              margin: 15px 0 0 20px;
             }
             .due_date {
               &__select-list {

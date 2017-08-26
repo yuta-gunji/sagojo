@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818081613) do
+ActiveRecord::Schema.define(version: 20170826071124) do
 
   create_table "candidates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -19,12 +19,6 @@ ActiveRecord::Schema.define(version: 20170818081613) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_candidates_on_user_id", using: :btree
     t.index ["work_id"], name: "index_candidates_on_work_id", using: :btree
-  end
-
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,29 +40,29 @@ ActiveRecord::Schema.define(version: 20170818081613) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tag_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.string   "tagger_type"
+    t.integer  "tagger_id"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context", using: :btree
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
+  end
+
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_tags_on_name", using: :btree
-  end
-
-  create_table "user_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",     null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_user_categories_on_category_id", using: :btree
-    t.index ["user_id"], name: "index_user_categories_on_user_id", using: :btree
-  end
-
-  create_table "user_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "tag_id",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_user_tags_on_tag_id", using: :btree
-    t.index ["user_id"], name: "index_user_tags_on_user_id", using: :btree
+    t.string  "name",                       collation: "utf8_bin"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,24 +95,6 @@ ActiveRecord::Schema.define(version: 20170818081613) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "work_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "work_id",     null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_work_categories_on_category_id", using: :btree
-    t.index ["work_id"], name: "index_work_categories_on_work_id", using: :btree
-  end
-
-  create_table "work_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "work_id",    null: false
-    t.integer  "tag_id",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_work_tags_on_tag_id", using: :btree
-    t.index ["work_id"], name: "index_work_tags_on_work_id", using: :btree
-  end
-
   create_table "works", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "image",                      limit: 65535
     t.text     "outline",                    limit: 65535
@@ -137,13 +113,5 @@ ActiveRecord::Schema.define(version: 20170818081613) do
 
   add_foreign_key "candidates", "users"
   add_foreign_key "candidates", "works"
-  add_foreign_key "user_categories", "categories"
-  add_foreign_key "user_categories", "users"
-  add_foreign_key "user_tags", "tags"
-  add_foreign_key "user_tags", "users"
-  add_foreign_key "work_categories", "categories"
-  add_foreign_key "work_categories", "works"
-  add_foreign_key "work_tags", "tags"
-  add_foreign_key "work_tags", "works"
   add_foreign_key "works", "companies"
 end

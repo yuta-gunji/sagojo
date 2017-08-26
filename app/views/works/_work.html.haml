@@ -24,13 +24,13 @@
           530
           %span
             view
-      .thumb-job__info__content__taglists
-        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", class: "thumb-job__info__content__taglists__image",size: "18x18", alt: "タグ")
-        %ul.thumb-job__info__content__taglists__list
-          - work.tags.each do |tag|
-            %li.thumb-job__info__content__taglists__list__item
+      .thumb-job__info__content__skill-lists
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", class: "thumb-job__info__content__skill-lists__image",size: "20x20", alt: "タグ")
+        %ul.thumb-job__info__content__skill-lists__list
+          - work.skill_list.each do |skill|
+            %li.thumb-job__info__content__skill-lists__list__item
               = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-02.svg", size: "14x14")
-              = tag.name
+              = skill
       .thumb-job__info__content__fee
         .thumb-job__info__content__fee__inner-01
           %p.thumb-job__info__content__fee__inner-01__desc

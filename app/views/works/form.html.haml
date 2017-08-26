@@ -64,19 +64,7 @@
               %br
               例: ライター、フォトグラファー、動画ディレクター
             .category-select
-              %ul.category-select__lists
-                - @user.categories.each_with_index do |category, i|
-                  - if category.name != nil
-                    %li.category-select__lists__list{ id: "add_category_#{i}" }
-                      %input{ name: "user[category_ids][]", type: "hidden", value: category.id}
-                      %span.category-select__lists__list--name
-                        = category.name
-                      %span.category-select__lists__list--delete{ data:{ id: "#{i}", default: "default" } } ×
-                %li.category-select__lists__input
-                  %input.category-select__lists__input--field{id: "category-select-field"}
-                  %span.category-select__lists__input--add
-                    追加
-            #category-search-result
+              %ul#user-category-lists
           .form-wrap-01
             = f.label :job_experience, class: "label-01" do
               就業経験・学歴など
@@ -86,24 +74,12 @@
               旅の経験
             = f.text_area :trip_experience, class: "textarea-01", placeholder: "例：\n【国内】\n自転車移動、テント泊で北海道を旅しました。\n【海外】\nインド（3週間）、ヨルダン・イスラエル（2週間）、フランス（4日間）の5ヶ国を旅しました。"
           .form-wrap-01
-            %label.label-01{ for: 'tag-select-field' }
+            %label.label-01
               得意なことやスキルなど(タグ)  ※最低1つ入力してください
               %br
               例: ライティング、写真撮影、動画編集
-            .tag-select
-              %ul.tag-select__lists
-                - @user.tags.each_with_index do |tag, i|
-                  - if tag.name != nil
-                    %li.tag-select__lists__list{ id: "add_tag_#{i}" }
-                      %input{ name: "user[tag_ids][]", type: "hidden", value: tag.id}
-                      %span.tag-select__lists__list--name
-                        = tag.name
-                      %span.tag-select__lists__list--delete{ data:{ id: "#{i}", default: "default" } } ×
-                %li.tag-select__lists__input
-                  %input.tag-select__lists__input--field{id: "tag-select-field"}
-                  %span.tag-select__lists__input--add
-                    追加
-            #tag-search-result
+            .skill-select
+              %ul#user-skill-lists
           .form-wrap-01
             = f.label :activity, class: "label-01" do
               過去のご実績・ご活動
