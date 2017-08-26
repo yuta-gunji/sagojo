@@ -26,22 +26,12 @@
     %label.label-02{ for: 'category-select-field' }
       職種(カテゴリー)  ※最低1つ入力してください
     .category-select
-      %ul.category-select__lists
-        %li.category-select__lists__input
-          %input.category-select__lists__input--field{id: "category-select-field"}
-          %a.category-select__lists__input--add
-            追加
-    #category-search-result
+      %ul#work-category-lists
   .form-wrap-02
     %label.label-02{ for: 'tag-select-field' }
       必要なスキルなど(タグ)  ※最低1つ入力してください
     .tag-select
-      %ul.tag-select__lists
-        %li.tag-select__lists__input
-          %input.tag-select__lists__input--field{id: "tag-select-field"}
-          %a.tag-select__lists__input--add
-            追加
-    #tag-search-result
+      %ul#work-tag-lists
   .form-wrap-02
     = f.label :fee, class: "label-02" do
       リターン(報酬)

@@ -72,24 +72,24 @@
     .right-content
       .side-work
         .side-work__inner.side-work__category
-          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-category.svg", alt: "カテゴリ", class: "side-work__category--image")
-          - @work.categories.each do |category|
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-category.svg", size: '18x18',alt: "カテゴリ", class: "side-work__category--image")
+          - @work.category_list.each do |category|
             %p.side-work__category--text
-              = category.name
+              = category
         .side-work__inner.side-work__company
-          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg", alt: "会社名", class: "side-work__company--image")
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg", size: '18x18', alt: "会社名", class: "side-work__company--image")
           %p.side-work__company--name
             = @work.company.name
         .side-work__inner.side-work__fee
-          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg", alt: "金額", class: "side-work__fee--image")
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg", size: '18x18', alt: "金額", class: "side-work__fee--image")
           %p.side-work__fee--text
             = @work.fee
-        .side-work__inner.side-work__tag
-          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", alt: "タグ", class: "side-work__tag--image")
-          - @work.tags.each do |tag|
-            %ul.side-work__tag__lists
-              %li.side-work__tag__lists__list
-                = tag.name
+        .side-work__inner.side-work__skill
+          = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", alt: "タグ", class: "side-work__skill--image", size: '18x18',)
+          - @work.skill_list.each do |skill|
+            %ul.side-work__skill__lists
+              %li.side-work__skill__lists__list
+                = skill
   = render partial: 'layouts/footer'
 
 
