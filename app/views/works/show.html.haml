@@ -77,6 +77,13 @@
               - else
                 %p.application-message 募集期間が終了しています
                 = link_to "仕事一覧へ戻る", root_path, class: "return-link", method: :get
+          - else
+            - if due_date >= 0
+              .application-btn
+                = link_to "応募画面へ進む", "/companies/#{@work.company.id}/works/#{@work.id}/form", class: "application-btn__link"
+            - else
+              %p.application-message 募集期間が終了しています
+              = link_to "仕事一覧へ戻る", root_path, class: "return-link", method: :get
     .right-content
       .side-work
         .side-work__inner.side-work__category
