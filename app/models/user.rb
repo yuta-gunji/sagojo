@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :works, through: :candidates
   mount_uploader :avatar, ImageUploader
   acts_as_ordered_taggable_on :categories, :skills
+
 end
