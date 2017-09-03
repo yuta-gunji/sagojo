@@ -16,3 +16,5 @@
 //= require tag-it
 //= require turbolinks
 //= require_tree .
+//= stub work
+//= stub user
