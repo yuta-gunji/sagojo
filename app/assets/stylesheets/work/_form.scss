@@ -109,8 +109,8 @@
                 border-color: #a0a0a0;
               }
             }
-            .tag-select {
-              #work-tag-lists {
+            .skill-select {
+              #work-skill-lists {
                 list-style: none;
                 width: calc(100% - 70px);
                 padding: 5px 15px;
@@ -120,7 +120,7 @@
                 outline: none;
                 @include clearfix();
               }
-              #work-tag-lists:hover {
+              #work-skill-lists:hover {
                 border-color: #a0a0a0;
               }
             }
