@@ -3,13 +3,13 @@ class WorksController < ApplicationController
   before_action  :authenticate_user!, only: [:form, :apply]
   before_action  :set_company, only: [:new, :create]
   before_action  :set_work, only: [:show, :form]
-  before_action  :set_available_work_categories_to_gon, only: [:new]
-  before_action  :set_available_work_skills_to_gon, only: [:new]
-  before_action  :set_user
-  before_action  :set_user_categories_to_gon, only: [:form]
-  before_action  :set_user_skills_to_gon, only: [:form]
-  before_action  :set_available_user_categories_to_gon, only: [:form]
-  before_action  :set_available_user_skills_to_gon, only: [:form]
+  before_action  :set_available_work_categories_to_gon, only: [:new, :create]
+  before_action  :set_available_work_skills_to_gon, only: [:new, :create]
+  before_action  :set_user, only: [:form, :apply]
+  before_action  :set_user_categories_to_gon, only: [:form, :apply]
+  before_action  :set_user_skills_to_gon, only: [:form, :apply]
+  before_action  :set_available_user_categories_to_gon, only: [:form, :apply]
+  before_action  :set_available_user_skills_to_gon, only: [:form, :apply]
 
   def index
     @works = Work.order('created_at DESC').page(params[:page]).per(5)
@@ -36,7 +36,12 @@ class WorksController < ApplicationController
 
   def apply
     if current_user.update(apply_params)
-      redirect_to root_path
+      candidate = current_user.candidates.new(user_id: @user.id, work_id: params[:id])
+      if candidate.save
+        redirect_to root_path, notice: '応募が完了しました'
+      else
+        render :form
+      end
     else
       render :form
     end
@@ -90,8 +95,7 @@ class WorksController < ApplicationController
       :introduction,
       :birth_day,
       :category_list,
-      :skill_list,
-      work_ids: []
+      :skill_list
     )
   end
 

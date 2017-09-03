@@ -43,13 +43,9 @@
         %span.utility-02__select ▼
         %ul.utility-02__lists
           %li.utility-02__lists__list
-            = link_to "応募した仕事", root_path, class: "utility-02__lists__list__link", method: :get
-          %li.utility-02__lists__list
-            = link_to "お気に入り一覧", root_path, class: "utility-02__lists__list__link", method: :get
+            = link_to "応募した仕事", user_apply_list_path(current_user), class: "utility-02__lists__list__link", method: :get
           %li.utility-02__lists__list
             = link_to "プロフィール編集", edit_user_path(current_user), class: "utility-02__lists__list__link", method: :get
-          %li.utility-02__lists__list
-            = link_to "アカウント設定", root_path, class: "utility-02__lists__list__link", method: :get
           %li.utility-02__lists__list.utility-02__lists__list--last
             = link_to "ログアウト", destroy_user_session_path, class: "utility-02__lists__list__link utility-02__lists__list__link--color", method: :delete
     - else

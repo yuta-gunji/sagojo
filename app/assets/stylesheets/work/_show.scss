@@ -98,7 +98,6 @@
           }
         }
         .application-btn {
-          
           &__link {
             display: block;
             width: 40%;
@@ -117,6 +116,20 @@
           &__link:hover {
             opacity: 0.8;
           }
+        }
+        .application-message {
+          text-align: center;
+          padding: 25px 0;
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 3px;
+        }
+        .return-link {
+          text-align: center;
+          color: #3a94ff;
+          display: block;
+          text-decoration: none;
+          font-size: 13px;
         }
       }
     }
