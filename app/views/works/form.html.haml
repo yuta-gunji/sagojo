@@ -1,3 +1,4 @@
+= javascript_include_tag 'user', data:{turbolinks:{track: true}}
 .content-wrapper-01
   = render partial: 'layouts/header'
   .upper-message-01
@@ -8,7 +9,7 @@
       .profile-area-01
         = form_for @user, url: {action: 'apply'}, html: {method: 'patch'}, class: "edit_user" do |f|
           %input.model_name{name: "model_name", type: "hidden", value: "user" }
-          %input{ name: "user[work_ids][]", type: 'hidden', value: @work.id }
+          %input{ name: "user_id", type: 'hidden', value: @user.id }
           .user-image
             - if @user.avatar.present?
               = image_tag @user.avatar, class: "user-thumbnail"
