@@ -18,7 +18,7 @@
           %h1.work-title
             = @work.title
           .work-image
-            = image_tag @work.image, class: "work-image__view" if @work.image.present?
+            = image_tag @work.image, class: "work-image__view", alt: 'image' if @work.image.present?
           .work-tbl-01
             %table.work-tbl-01__content
               %tr.work-tbl-01__content__row
@@ -67,8 +67,16 @@
                 %dl.application-flow__lists__list__data
                   %dt.application-flow__lists__list__data--top 旅がシゴトに！
                   %dd.application-flow__lists__list__data--bottom 実際に旅をして、シゴトを実行していただきます。
-          .application-btn
-            = link_to "応募画面へ進む", "/companies/#{@work.company.id}/works/#{@work.id}/form", class: "application-btn__link"
+          - if user_signed_in?
+            - if current_user.candidates.applied_work?(@work.id)
+              %p.application-message この求人には既に応募しています
+            - else
+              - if due_date >= 0
+                .application-btn
+                  = link_to "応募画面へ進む", "/companies/#{@work.company.id}/works/#{@work.id}/form", class: "application-btn__link"
+              - else
+                %p.application-message 募集期間が終了しています
+                = link_to "仕事一覧へ戻る", root_path, class: "return-link", method: :get
     .right-content
       .side-work
         .side-work__inner.side-work__category
