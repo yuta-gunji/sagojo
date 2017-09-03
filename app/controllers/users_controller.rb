@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action  :authenticate_user!
-  before_action  :set_user, only: [:edit]
-  before_action  :set_user_categories_to_gon, only: [:edit]
-  before_action  :set_user_skills_to_gon, only: [:edit]
-  before_action  :set_available_user_categories_to_gon, only: [:edit]
-  before_action  :set_available_user_skills_to_gon, only: [:edit]
+  before_action  :set_user, only: [:edit, :update]
+  before_action  :set_user_categories_to_gon, only: [:edit, :update]
+  before_action  :set_user_skills_to_gon, only: [:edit, :update]
+  before_action  :set_available_user_categories_to_gon, only: [:edit, :update]
+  before_action  :set_available_user_skills_to_gon, only: [:edit, :update]
 
   def edit
   end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def apply_list
-    @works = current_user.works.order('created_at DESC').page(params[:page]).per(10)
+    @works = current_user.works.includes(:categories, :skills).order('created_at DESC').page(params[:page]).per(10)
   end
 
   private
