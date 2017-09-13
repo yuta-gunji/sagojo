@@ -178,7 +178,6 @@
           margin-left: 15px;
         }
       }
-      
       &__skill {
         @include clearfix();
         &--image {
@@ -190,6 +189,20 @@
             float: left;
             margin-left: 15px;
           }
+        }
+      }
+      &__chat-room {
+        text-align: center;
+        margin: 20px auto;
+        border-radius: 20px;
+        padding: 10px 10px;
+        width: 70%;
+        background-color: #ffcb00;
+        &--link {
+          display: block;
+          text-decoration: none;
+          color: #fff;
+          font-size: 16px;
         }
       }
     }

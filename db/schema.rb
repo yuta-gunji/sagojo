@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826071124) do
+ActiveRecord::Schema.define(version: 20170908081707) do
 
   create_table "candidates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 20170826071124) do
     t.index ["email"], name: "index_companies_on_email", unique: true, using: :btree
     t.index ["name"], name: "index_companies_on_name", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",             limit: 65535
+    t.string   "image"
+    t.integer  "work_id",                        null: false
+    t.string   "messageable_type"
+    t.integer  "messageable_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id", using: :btree
+    t.index ["work_id"], name: "index_messages_on_work_id", using: :btree
   end
 
   create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -113,5 +125,6 @@ ActiveRecord::Schema.define(version: 20170826071124) do
 
   add_foreign_key "candidates", "users"
   add_foreign_key "candidates", "works"
+  add_foreign_key "messages", "works"
   add_foreign_key "works", "companies"
 end
