@@ -1,0 +1,142 @@
+.main-content-type-06 {
+  margin: 20px auto 0;
+  min-height: 135vh;
+  @include clearfix();
+  .upper-content {
+    width: 690px;
+    margin: 0 auto;
+    @include thumbjob();
+    @include clearfix();
+    .work-detail {
+      font-weight: bold;
+    }
+  }
+  #wrapper {
+    @include clearfix();
+    width: 80vw;
+    padding: 0 10vw;
+    .left-content {
+      float: left;
+      width: 20vw;
+      min-width: 270px;
+      margin: 30px 10px 0 0;
+      background-color: #fff;
+      text-align: center;
+      .company-name {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 60px;
+        height: 60px;
+        padding-left: 20px;
+        border-bottom: solid 1px #ddd;
+      }
+      .candidates-box {
+        font-size: 14px;
+        min-height: 60vh;
+        overflow: scroll;
+        .candidates-box-list {
+          font-weight: bold;
+          height: 45px;
+          line-height: 45px;
+          border-bottom: solid 1px #f9f9f9;
+        }
+        .candidates {
+          list-style: none;
+          border-bottom: solid 1px #f9f9f9;
+          &__list {
+            height: 35px;
+            line-height: 35px;
+          }
+        }
+      }
+    }
+    .right-content {
+      float: left;
+      margin-top: 30px;
+      width: 50vw;
+      @include clearfix();
+      .top-content {
+        background-color: #fff;
+        .title {
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 60px;
+          height: 60px;
+          padding-left: 20px;
+          border-bottom: solid 1px #ddd;
+        }
+      }
+      .middle-content {
+        overflow: scroll;
+        background-color: #fff;
+        height: 59vh;
+        .messages {
+          padding: 10px 20px 0;
+          display: block;
+          .message {
+            color: #434A54;
+            margin-bottom: 40px;
+            font-size: 14px;
+            &__name {
+              font-weight: bold;
+              float: left;
+              margin: 0 15px 5px 10px;
+            }
+            &__date {
+              float: left;
+            }
+            &__detail {
+              background-color: #f9f9f9;
+              padding: 10px 15px;
+              border-radius: 10px;
+              clear: both;
+              &--text {
+
+              }
+              &--image {
+                margin-top:10px;
+              }
+            }
+          }
+        }
+      }
+      .bottom-content {
+        background-color: #fff;
+        border-top: solid 1px #ddd;
+        @include clearfix();
+        .new_message {
+          display: block;
+          width: 100%;
+          padding: 15px 10px;
+          @include clearfix();
+          &__text {
+            float: left;
+            width: 70%;
+            height: 10vh;
+            resize: none;
+            padding: 10px 10px;
+          }
+          &__image {
+            float: left;
+            &--label {
+              display: inline-block;
+              margin-top: 60px;
+              cursor: pointer;
+              padding: 0 10px;
+            }
+            &--field {
+              display: none;
+            }
+          }
+          &__btn {
+            float: left;
+            display: inline-block;
+            margin-top: 63px;
+            width: 15%;
+            background-color: #3a94ff;
+          }
+        }
+      }
+    }
+  }
+}

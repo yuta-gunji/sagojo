@@ -1,0 +1,32 @@
+#wrap
+  = render partial: 'layouts/header'
+  = render partial: "layouts/flash_message"
+  .main-content-type-06
+    .upper-content
+      %p.work-detail 仕事詳細
+      = render partial: 'works/work', locals: { work: @work }
+    #wrapper
+      .left-content
+        %p.company-name
+          企業名 :
+          = @work.company.name
+        .candidates-box
+          %p.candidates-box-list 応募者リスト
+          %ul.candidates
+            - @candidates.each do |candidate|
+              %li.candidates__list
+                = candidate.name
+      .right-content
+        .top-content
+          %p.title メッセージ
+        .middle-content
+          %ul.messages
+            = render @messages
+        .bottom-content
+          = form_for [@work, @message] do |f|
+            = f.text_area :body, class: 'new_message__text', placeholder: 'type a message'
+            .new_message__image
+              = f.label :image, class: 'new_message__image--label', for: 'message_image' do
+                %i.fa.fa-picture-o
+              = f.file_field :image, class: 'new_message__image--field'
+            = f.submit class: 'new_message__btn', value: 'Send', data:{ disable_with: 'Send' }

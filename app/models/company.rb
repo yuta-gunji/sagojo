@@ -5,4 +5,5 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true, uniqueness: true
   has_many :works
+  has_many :messages, as: :messageable
 end

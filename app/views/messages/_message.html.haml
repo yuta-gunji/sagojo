@@ -1,0 +1,10 @@
+%li.message{ message_id: "#{message.id}" }
+  %p.message__name
+    = message.messageable.name
+  %p.message__date
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .message__detail
+    %p.message__detail--text
+      = message.body if message.body.present?
+    .message__detail--image
+      = image_tag message.image.url(:thumb) if message.image.present?

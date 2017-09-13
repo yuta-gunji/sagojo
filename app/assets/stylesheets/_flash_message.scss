@@ -5,6 +5,7 @@
   text-align: center;
   width: 100%;
   padding: 20px 0;
+  z-index: 10000;
   &__alert {
     background-color: rgba(226, 89, 89, 0.95);
   }

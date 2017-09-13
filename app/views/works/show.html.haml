@@ -1,6 +1,8 @@
 #wrap
   = render partial: 'layouts/header'
+  = render partial: 'layouts/flash_message'
   .main-content-type-05
+
     .left-content
       .inner
         %article.work-detail-01
@@ -68,7 +70,7 @@
                   %dt.application-flow__lists__list__data--top 旅がシゴトに！
                   %dd.application-flow__lists__list__data--bottom 実際に旅をして、シゴトを実行していただきます。
           - if user_signed_in?
-            - if current_user.candidates.applied_work?(@work.id)
+            - if Candidate.applied_work?(@work.id, current_user.id)
               %p.application-message この求人には既に応募しています
             - else
               - if due_date >= 0
@@ -105,6 +107,12 @@
             %ul.side-work__skill__lists
               %li.side-work__skill__lists__list
                 = skill
+        - if company_signed_in? && @work.company.id == current_company.id
+          .side-work__chat-room
+            = link_to "応募者のチャットルームへ", work_messages_path(@work), class: "side-work__chat-room--link"
+        - elsif user_signed_in? && Candidate.applied_work?(@work.id, current_user.id)
+          .side-work__chat-room
+            = link_to "応募者のチャットルームへ", work_messages_path(@work), class: "side-work__chat-room--link"
   = render partial: 'layouts/footer'
 
 

@@ -1,5 +1,7 @@
 @import "./reset";
 @import "mixin/clearfix";
+@import "mixin/thumbjob";
+@import "font-awesome";
 @import "body";
 @import "header";
 @import "flash_message";
@@ -10,6 +12,7 @@
 @import "company/sign-in";
 @import "work/form";
 @import "work/show";
+@import "message";
 @import "footer";
 @import "vender/jquery_tagit";
 @import "vender/tagit_ui-zendesk";
