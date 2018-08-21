@@ -33,9 +33,9 @@ $(document).on('turbolinks:load', function(){
       })
       .done(function(data){
         var html = buildHTML(data);
-        $('.messages').append(html)
-        $('.new_message__text').val('')
-        $('#new_message__image--field').val('')
+        $('.messages').append(html);
+        $('.new_message__text').val('');
+        $('#new_message__image--field').val('');
         $('.middle-content').animate({scrollTop: $('.middle-content')[0].scrollHeight});
       })
       .fail(function(){
